@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tokotoko Wellbeing Navigator</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            tokotoko: {
+              base: '#F2EFE9',         // Warm Off-White / Alabaster
+              sage: '#B7B591',         // Muted Grey-Yellow / Sage Olive
+              primary: '#6B6C1E',      // Deep Olive Green
+              primaryDark: '#535417',  // Deeper Olive Green
+              secondary: '#8E8200',    // Warm Yellow-Olive
+              espresso: '#332F08',     // Dark Espresso / Deep Brown
+              cardBg: '#FCFBF8',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --tokotoko-base: #F2EFE9;
+      --tokotoko-sage: #B7B591;
+      --tokotoko-primary: #6B6C1E;
+      --tokotoko-secondary: #8E8200;
+      --tokotoko-espresso: #332F08;
+    }
+
+    body {
+      background-color: #F2EFE9;
+      color: #332F08;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .tokotoko-header {
+      background: linear-gradient(135deg, #332F08 0%, #525317 45%, #6B6C1E 100%);
+      border-bottom: 2px solid #8E8200;
+    }
+
+    .tokotoko-shadow {
+      box-shadow: 0 10px 25px -5px rgba(51, 47, 8, 0.08), 0 4px 6px -2px rgba(107, 108, 30, 0.05);
+    }
+
+    .tokotoko-glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(183, 181, 145, 0.28) 0%, rgba(242, 239, 233, 0) 70%);
+      top: -120px;
+      right: -100px;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body class="bg-tokotoko-base text-tokotoko-espresso min-h-screen flex flex-col antialiased selection:bg-tokotoko-secondary selection:text-white">
+
+  <!-- Top Navigation Header -->
+  <header class="tokotoko-header text-white sticky top-0 z-40 shadow-lg">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-3 cursor-pointer" onclick="handleLogoClick()">
+        <!-- Tokotoko Custom Staff/Emblem SVG Logo -->
+        <div class="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-inner">
+          <svg class="w-6 h-6 text-[#B7B591]" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M24 6c-3 0-5 2.5-5 5.5 0 4 5 7.5 5 11.5v19" stroke="#F2EFE9"/>
+            <path d="M19 11.5c0-1.5 1.5-2.5 3-2.5 2 0 3 1.5 3 3 0 2-2 3.5-3 4.5" stroke="#B7B591" stroke-width="2"/>
+            <path d="M24 23c2.5-3.5 6-4.5 8-3.5 2.5 1.5 2.5 4.5 0.5 7-2 2.5-5 3.5-8.5 3.5" stroke="#8E8200"/>
+            <circle cx="24" cy="42" r="1.5" fill="#F2EFE9"/>
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-lg sm:text-xl font-black tracking-wide uppercase text-white">TOKOTOKO</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-tokotoko-secondary/30 text-yellow-200 border border-tokotoko-secondary/50 tracking-wider uppercase">Men's Vaka</span>
+          </div>
+          <p class="text-[11px] text-[#B7B591] font-medium tracking-tight">Phase 1: Foundation (Te Hoe)</p>
+        </div>
+      </div>
+      
+      <!-- Right Navigation Actions for Authenticated Users -->
+      <div id="navAuthenticatedActions" class="hidden flex items-center gap-2 sm:gap-3">
+        <!-- Week 2 Unlock status indicator badge -->
+        <button onclick="navigateTo('week2')" id="week2NavBadge" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-xl border border-yellow-400/40 bg-yellow-400/10 text-yellow-200 hover:bg-yellow-400/20 transition">
+          <span id="navLockIcon">🔒</span>
+          <span id="navWeek2Text">Week 2: Mental Wellbeing</span>
+        </button>
+
+        <button onclick="navigateTo('tracker')" class="text-xs sm:text-sm font-semibold bg-white/15 hover:bg-white/25 text-white px-3 py-1.5 rounded-xl transition duration-200 flex items-center gap-1.5 border border-white/20 shadow-sm">
+          <svg class="w-4 h-4 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+          <span class="hidden sm:inline">Habit</span> Tracker
+        </button>
+
+        <!-- User profile dropdown & signout -->
+        <div class="relative group">
+          <button class="flex items-center gap-2 bg-black/25 hover:bg-black/40 text-white px-2.5 py-1.5 rounded-xl border border-white/15 transition text-xs font-bold">
+            <div class="w-6 h-6 rounded-full bg-tokotoko-secondary flex items-center justify-center text-[10px] font-black uppercase" id="userAvatarText">T</div>
+            <span class="hidden md:inline" id="userDisplayNameHeader">Brother</span>
+            <svg class="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute right-0 mt-1 w-48 bg-tokotoko-cardBg text-tokotoko-espresso rounded-xl shadow-2xl border border-tokotoko-sage/60 py-1.5 hidden group-hover:block z-50">
+            <div class="px-3 py-1.5 border-b border-tokotoko-sage/30 text-[11px]">
+              <span class="text-tokotoko-espresso/60 block">Signed in as</span>
+              <span class="font-bold truncate block" id="userEmailHeader">client@tokotoko.org</span>
+            </div>
+            <button onclick="navigateTo('selector')" class="w-full text-left px-3 py-1.5 text-xs hover:bg-tokotoko-sage/20 transition flex items-center gap-2">
+              Physical Pathways
+            </button>
+            <button onclick="navigateTo('tracker')" class="w-full text-left px-3 py-1.5 text-xs hover:bg-tokotoko-sage/20 transition flex items-center gap-2">
+              Habit Progress Log
+            </button>
+            <button onclick="navigateTo('week2')" class="w-full text-left px-3 py-1.5 text-xs hover:bg-tokotoko-sage/20 transition flex items-center gap-2">
+              Week 2: Mental Wellbeing
+            </button>
+            <div class="border-t border-tokotoko-sage/30 my-1"></div>
+            <button onclick="handleSignOut()" class="w-full text-left px-3 py-1.5 text-xs text-red-700 hover:bg-red-50 font-bold transition flex items-center gap-2">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+              Sign Out
+            </button>
+          </div>
+        </div>
+
+        <button id="navBackBtn" onclick="navigateTo('selector')" class="hidden text-xs sm:text-sm font-semibold bg-white/15 hover:bg-white/25 text-white px-3 py-1.5 rounded-xl transition duration-200 items-center gap-1 border border-white/20 shadow-sm">
+          Back
+        </button>
+      </div>
+
+      <!-- Unauthenticated View Sign-In Prompt -->
+      <div id="navUnauthActions" class="flex items-center gap-2">
+        <button onclick="navigateTo('auth')" class="text-xs sm:text-sm font-bold bg-tokotoko-secondary hover:bg-yellow-600 text-white px-4 py-1.5 rounded-xl transition shadow">
+          Sign In
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="flex-grow max-w-6xl mx-auto w-full px-4 sm:px-6 py-7 sm:py-10 relative">
+    <div class="tokotoko-glow"></div>
+
+    <!-- VIEW 0: Authentication (Sign In & Register) -->
+    <section id="view-auth" class="relative z-10 transition-opacity duration-300">
+      <div class="max-w-md mx-auto bg-tokotoko-cardBg rounded-3xl p-7 sm:p-9 border-2 border-tokotoko-sage/60 tokotoko-shadow">
+        
+        <!-- Header emblem -->
+        <div class="text-center mb-6">
+          <div class="w-14 h-14 rounded-2xl bg-tokotoko-primary text-white flex items-center justify-center mx-auto mb-3 shadow-md">
+            <svg class="w-8 h-8 text-[#B7B591]" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 6c-3 0-5 2.5-5 5.5 0 4 5 7.5 5 11.5v19" stroke="#F2EFE9"/>
+              <path d="M19 11.5c0-1.5 1.5-2.5 3-2.5 2 0 3 1.5 3 3 0 2-2 3.5-3 4.5" stroke="#B7B591" stroke-width="2"/>
+              <path d="M24 23c2.5-3.5 6-4.5 8-3.5 2.5 1.5 2.5 4.5 0.5 7-2 2.5-5 3.5-8.5 3.5" stroke="#8E8200"/>
+              <circle cx="24" cy="42" r="1.5" fill="#F2EFE9"/>
+            </svg>
+          </div>
+          <span class="text-xs font-bold tracking-widest uppercase text-tokotoko-primary">My Tokotoko Journey</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-tokotoko-espresso mt-1" id="authFormTitle">
+            Welcome to the Vaka
+          </h2>
+          <p class="text-xs text-tokotoko-espresso/70 mt-1">
+            Sign in to track your week 1 habits and unlock upcoming journey modules.
+          </p>
+        </div>
+
+        <!-- Auth Tabs (Sign In vs Register) -->
+        <div class="flex bg-[#EBE7DF] p-1 rounded-xl mb-6 border border-tokotoko-sage/50">
+          <button onclick="toggleAuthTab('signin')" id="tabSignIn" class="w-1/2 py-2 text-xs font-bold rounded-lg transition bg-white text-tokotoko-espresso shadow-sm">
+            Sign In
+          </button>
+          <button onclick="toggleAuthTab('register')" id="tabRegister" class="w-1/2 py-2 text-xs font-bold rounded-lg transition text-tokotoko-espresso/70 hover:text-tokotoko-espresso">
+            New Client Register
+          </button>
+        </div>
+
+        <!-- Form fields -->
+        <form onsubmit="handleAuthSubmit(event)" class="space-y-4">
+          <div id="authNameFieldContainer" class="hidden">
+            <label class="block text-xs font-bold text-tokotoko-espresso mb-1">Your Full Name</label>
+            <input type="text" id="authName" placeholder="e.g. Rawiri Henare" class="w-full bg-[#F2EFE9] border border-tokotoko-sage rounded-xl px-3.5 py-2.5 text-xs text-tokotoko-espresso focus:ring-2 focus:ring-tokotoko-primary outline-none">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-tokotoko-espresso mb-1">Email Address</label>
+            <input type="email" id="authEmail" required placeholder="rawiri@example.co.nz" value="client@tokotoko.org" class="w-full bg-[#F2EFE9] border border-tokotoko-sage rounded-xl px-3.5 py-2.5 text-xs text-tokotoko-espresso focus:ring-2 focus:ring-tokotoko-primary outline-none">
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <label class="block text-xs font-bold text-tokotoko-espresso">Password</label>
+              <span class="text-[10px] text-tokotoko-espresso/60">Demo: any password</span>
+            </div>
+            <input type="password" id="authPassword" required placeholder="••••••••" value="tokotoko123" class="w-full bg-[#F2EFE9] border border-tokotoko-sage rounded-xl px-3.5 py-2.5 text-xs text-tokotoko-espresso focus:ring-2 focus:ring-tokotoko-primary outline-none">
+          </div>
+
+          <button type="submit" id="authSubmitBtn" class="w-full py-3 bg-tokotoko-primary hover:bg-tokotoko-primaryDark text-white font-bold text-sm rounded-xl transition shadow-md flex items-center justify-center gap-2 mt-2">
+            <span>Sign In to Vaka</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </form>
+
+        <!-- Quick Demo Accounts Assist -->
+        <div class="mt-6 pt-4 border-t border-tokotoko-sage/40 text-center">
+          <p class="text-[11px] text-tokotoko-espresso/70 mb-2 font-medium">Quick Demo Profiles:</p>
+          <div class="flex gap-2">
+            <button onclick="fillDemoUser('Rawiri (Active)', 'rawiri@tokotoko.org', 4)" class="flex-1 py-1.5 px-2 bg-white border border-tokotoko-sage/60 rounded-lg text-[10px] font-bold text-tokotoko-espresso hover:bg-tokotoko-sage/20 transition">
+              Rawiri (4 check-ins)
+            </button>
+            <button onclick="fillDemoUser('Tāne (Unlocked Week 2)', 'tane@tokotoko.org', 6)" class="flex-1 py-1.5 px-2 bg-white border border-tokotoko-sage/60 rounded-lg text-[10px] font-bold text-tokotoko-espresso hover:bg-tokotoko-sage/20 transition">
+              Tāne (Unlocked)
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VIEW 1: Selection Form / Questionnaire -->
+    <section id="view-selector" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-tokotoko-sage/30 text-tokotoko-espresso text-xs font-bold uppercase tracking-wider mb-4 border border-tokotoko-sage">
+          <span>🌿</span>
+          Launching The Vaka • Te Hoe
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+          Physical Wellbeing Pathway
+        </h1>
+        <p class="mt-3 sm:mt-4 text-base sm:text-lg text-tokotoko-espresso/80 font-medium">
+          Select the statement below that best reflects where you are today. Your choice will guide your next steps on the voyage.
+        </p>
+      </div>
+
+      <!-- 3 Pathway Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        
+        <!-- Option 1 Card -->
+        <div onclick="selectPathway(1)" class="group cursor-pointer bg-tokotoko-cardBg rounded-3xl p-6 sm:p-8 border-2 border-tokotoko-sage/60 hover:border-tokotoko-primary transition duration-300 tokotoko-shadow flex flex-col justify-between hover:-translate-y-1 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-tokotoko-primary/5 rounded-bl-full pointer-events-none"></div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-tokotoko-primary text-white flex items-center justify-center font-bold text-lg mb-5 shadow-sm group-hover:bg-tokotoko-primaryDark transition">
+              1
+            </div>
+            <h3 class="text-lg font-bold text-tokotoko-espresso mb-3 leading-snug group-hover:text-tokotoko-primary transition">
+              Staying Present for Whānau
+            </h3>
+            <p class="text-sm text-tokotoko-espresso/80 leading-relaxed font-normal">
+              "I value physical wellbeing and am actively engaged in exercise so that I can be present for my family now and in the future."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-tokotoko-sage/30 flex items-center text-xs font-bold text-tokotoko-primary">
+            <span>View encouragement & habits</span>
+            <svg class="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </div>
+        </div>
+
+        <!-- Option 2 Card -->
+        <div onclick="selectPathway(2)" class="group cursor-pointer bg-tokotoko-cardBg rounded-3xl p-6 sm:p-8 border-2 border-tokotoko-sage/60 hover:border-tokotoko-secondary transition duration-300 tokotoko-shadow flex flex-col justify-between hover:-translate-y-1 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-tokotoko-secondary/10 rounded-bl-full pointer-events-none"></div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-tokotoko-secondary text-white flex items-center justify-center font-bold text-lg mb-5 shadow-sm group-hover:bg-yellow-600 transition">
+              2
+            </div>
+            <h3 class="text-lg font-bold text-tokotoko-espresso mb-3 leading-snug group-hover:text-tokotoko-secondary transition">
+              Subsidised Gym Access
+            </h3>
+            <p class="text-sm text-tokotoko-espresso/80 leading-relaxed font-normal">
+              "I exercise regularly and would like to tap into resources that will help me to gain a discounted gym membership."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-tokotoko-sage/30 flex items-center text-xs font-bold text-tokotoko-secondary">
+            <span>Explore subsidized map</span>
+            <svg class="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </div>
+        </div>
+
+        <!-- Option 3 Card -->
+        <div onclick="selectPathway(3)" class="group cursor-pointer bg-tokotoko-cardBg rounded-3xl p-6 sm:p-8 border-2 border-tokotoko-sage/60 hover:border-tokotoko-primary transition duration-300 tokotoko-shadow flex flex-col justify-between hover:-translate-y-1 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-tokotoko-sage/20 rounded-bl-full pointer-events-none"></div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-[#525317] text-white flex items-center justify-center font-bold text-lg mb-5 shadow-sm group-hover:bg-tokotoko-espresso transition">
+              3
+            </div>
+            <h3 class="text-lg font-bold text-tokotoko-espresso mb-3 leading-snug group-hover:text-tokotoko-primary transition">
+              Coach & Green Prescription
+            </h3>
+            <p class="text-sm text-tokotoko-espresso/80 leading-relaxed font-normal">
+              "I would like to improve my physical wellbeing with the support of a coach to help me find options that suit my abilities and situation."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-tokotoko-sage/30 flex items-center text-xs font-bold text-[#525317]">
+            <span>Sport Northland support</span>
+            <svg class="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Action Jump to Tracker -->
+      <div class="mt-10 bg-white rounded-2xl p-5 border border-tokotoko-sage/60 flex flex-col sm:flex-row items-center justify-between gap-4 tokotoko-shadow">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-tokotoko-primary text-white flex items-center justify-center text-lg">
+            ⚡
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-tokotoko-espresso">Ready for your daily check-in?</h4>
+            <p class="text-xs text-tokotoko-espresso/70">Log movement, kai, sleep, and whānau to build toward unlocking Week 2.</p>
+          </div>
+        </div>
+        <button onclick="navigateTo('tracker')" class="px-5 py-2.5 bg-tokotoko-primary hover:bg-tokotoko-primaryDark text-white text-xs font-bold rounded-xl transition shadow">
+          Open Habit Tracker
+        </button>
+      </div>
+    </section>
+
+    <!-- VIEW 4: Dedicated Daily Habit Tracker & Progress Screen -->
+    <section id="view-tracker" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
+        
+        <!-- Header row -->
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6 pb-6 border-b border-tokotoko-sage/30">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tokotoko-sage/30 text-tokotoko-espresso text-xs font-bold uppercase tracking-wider mb-2">
+             Daily Discipline • Te Hoe
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-tokotoko-espresso">Daily Habit Tracker</h2>
+            <p class="text-xs sm:text-sm text-tokotoko-espresso/80 mt-1">Log your 5 holistic pillars every day to maintain momentum on your vaka journey.</p>
+          </div>
+
+          <!-- Streak & Target Counters -->
+          <div class="flex items-center gap-3">
+            <div class="bg-[#F0ECE1] border border-tokotoko-sage/60 px-4 py-2.5 rounded-2xl text-center">
+              <span class="text-xs font-semibold text-tokotoko-espresso/70 block uppercase tracking-wider">Current Streak</span>
+              <span id="streakCount" class="text-2xl font-black text-tokotoko-primary">0</span>
+              <span class="text-[10px] text-tokotoko-espresso/70 font-semibold">days in a row</span>
+            </div>
+            <div class="bg-[#F0ECE1] border border-tokotoko-sage/60 px-4 py-2.5 rounded-2xl text-center cursor-pointer hover:bg-[#eae4d5] transition" onclick="navigateTo('week2')">
+              <span class="text-xs font-semibold text-tokotoko-espresso/70 block uppercase tracking-wider">Week 2 Target</span>
+              <span id="totalCheckins" class="text-2xl font-black text-tokotoko-secondary">0 / 5</span>
+              <span class="text-[10px] text-tokotoko-espresso/70 font-semibold" id="trackerLockStatusLabel">to unlock</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          
+          <!-- Column 1 & 2: Daily Checklist Form -->
+          <div class="lg:col-span-2 space-y-5">
+            <!-- Date bar -->
+            <div class="flex items-center justify-between bg-[#F2EFE9] p-3 rounded-2xl border border-tokotoko-sage/40">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-tokotoko-espresso">Selected Date:</span>
+                <input type="date" id="trackerDate" onchange="onDateChange()" class="bg-white border border-tokotoko-sage rounded-xl px-2.5 py-1 text-xs text-tokotoko-espresso font-semibold outline-none">
+              </div>
+              <button onclick="setTodayDate()" class="text-xs font-bold text-tokotoko-primary hover:underline">
+                Today
+              </button>
+            </div>
+
+            <!-- 5 Habit Checklist Items -->
+            <div class="space-y-3">
+              <!-- Pillar 1 -->
+              <label class="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-tokotoko-sage/40 hover:border-tokotoko-primary transition cursor-pointer">
+                <input type="checkbox" id="habit-movement" class="mt-1 w-5 h-5 rounded border-tokotoko-sage text-tokotoko-primary focus:ring-tokotoko-primary accent-[#6B6C1E]">
+                <div>
+                  <span class="text-sm font-bold text-tokotoko-espresso block">1. Movement & Physical Activity (30+ mins)</span>
+                  <span class="text-xs text-tokotoko-espresso/70">Walking group, gym session, stretching, or physical work on the job site.</span>
+                </div>
+              </label>
+
+              <!-- Pillar 2 -->
+              <label class="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-tokotoko-sage/40 hover:border-tokotoko-primary transition cursor-pointer">
+                <input type="checkbox" id="habit-kai" class="mt-1 w-5 h-5 rounded border-tokotoko-sage text-tokotoko-primary focus:ring-tokotoko-primary accent-[#6B6C1E]">
+                <div>
+                  <span class="text-sm font-bold text-tokotoko-espresso block">2. Nourishing Kai & Hydration</span>
+                  <span class="text-xs text-tokotoko-espresso/70">Wholesome family kai, drinking enough water, and moderating sugars/alcohol.</span>
+                </div>
+              </label>
+
+              <!-- Pillar 3 -->
+              <label class="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-tokotoko-sage/40 hover:border-tokotoko-primary transition cursor-pointer">
+                <input type="checkbox" id="habit-sleep" class="mt-1 w-5 h-5 rounded border-tokotoko-sage text-tokotoko-primary focus:ring-tokotoko-primary accent-[#6B6C1E]">
+                <div>
+                  <span class="text-sm font-bold text-tokotoko-espresso block">3. Quality Rest & Recovery (7-8 hours)</span>
+                  <span class="text-xs text-tokotoko-espresso/70">Winding down early, putting phones away before sleep, recovering energy.</span>
+                </div>
+              </label>
+
+              <!-- Pillar 4 -->
+              <label class="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-tokotoko-sage/40 hover:border-tokotoko-primary transition cursor-pointer">
+                <input type="checkbox" id="habit-whanau" class="mt-1 w-5 h-5 rounded border-tokotoko-sage text-tokotoko-primary focus:ring-tokotoko-primary accent-[#6B6C1E]">
+                <div>
+                  <span class="text-sm font-bold text-tokotoko-espresso block">4. At Home Task</span>
+                  <span class="text-xs text-tokotoko-espresso/70">Encouraging my one other person in sharing my physical wellbeing goals or completed this week's task of preparing a healthy meal for my whanau.</span>
+                </div>
+              </label>
+
+              <!-- Pillar 5 -->
+              <label class="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-tokotoko-sage/40 hover:border-tokotoko-primary transition cursor-pointer">
+                <input type="checkbox" id="habit-mindset" class="mt-1 w-5 h-5 rounded border-tokotoko-sage text-tokotoko-primary focus:ring-tokotoko-primary accent-[#6B6C1E]">
+                <div>
+                  <span class="text-sm font-bold text-tokotoko-espresso block">5. Check-in</span>
+                  <span class="text-xs text-tokotoko-espresso/70">Posted in our online community or completed our weekly check-in form</span>
+                </div>
+              </label>
+            </div>
+
+            <!-- Notes Field -->
+            <div>
+              <label class="block text-xs font-bold text-tokotoko-espresso mb-1">Daily Reflection / Victory Notes</label>
+              <textarea id="habitNotes" rows="2" placeholder="e.g. Completed a 4km walk with the brother, felt energized for the day." class="w-full bg-white border border-tokotoko-sage rounded-2xl p-3 text-xs text-tokotoko-espresso outline-none focus:ring-2 focus:ring-tokotoko-primary"></textarea>
+            </div>
+
+            <!-- Save CTA -->
+            <div class="flex items-center justify-between pt-2">
+              <span class="text-xs text-tokotoko-espresso/70 font-semibold" id="saveStatusIndicator">Draft</span>
+              <button onclick="saveDailyHabits()" class="px-6 py-2.5 bg-tokotoko-primary hover:bg-tokotoko-primaryDark text-white font-bold text-xs rounded-xl transition shadow flex items-center gap-2">
+                <span>Save Today's Check-in</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Column 3: History & Milestones -->
+          <div class="bg-[#F7F5F0] rounded-2xl p-5 border border-tokotoko-sage/50 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-tokotoko-espresso">Recent Check-in Logs</h4>
+                <button onclick="clearHistoryConfirmation()" class="text-[10px] text-red-600 hover:underline">Reset Logs</button>
+              </div>
+              <div id="historyLogList" class="space-y-2 max-h-72 overflow-y-auto pr-1">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-tokotoko-sage/40">
+              <div class="p-3 bg-white rounded-xl border border-tokotoko-sage/50">
+                <span class="text-[10px] font-black uppercase text-tokotoko-secondary block">Unlockable Journey</span>
+                <p class="text-xs font-bold text-tokotoko-espresso mt-0.5">Week 2: Mental Wellbeing</p>
+                <p class="text-[11px] text-tokotoko-espresso/70 mt-1">Requires 5 check-ins. Teaches conflict tools and reprogramming mental defaults.</p>
+                <button onclick="navigateTo('week2')" class="mt-2.5 w-full py-1.5 bg-tokotoko-sage/30 hover:bg-tokotoko-sage/50 text-tokotoko-espresso text-[11px] font-bold rounded-lg transition">
+                  Preview Week 2 Module →
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VIEW 5: Week 2 - Mental Wellbeing (Unlocked through Daily Habit Consistency) -->
+    <section id="view-week2" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8 relative overflow-hidden">
+        
+        <!-- Header row -->
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-tokotoko-secondary/20 text-[#635b00] text-xs font-bold uppercase tracking-wider border border-tokotoko-secondary/40">
+            Phase 1 • Week 2: Mental Wellbeing
+          </div>
+          <button onclick="navigateTo('selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
+            ← Return to Physical Wellbeing
+          </button>
+        </div>
+
+        <!-- Lock banner (shows if user hasn't hit check-in threshold) -->
+        <div id="week2LockedBanner" class="p-6 rounded-2xl bg-amber-50 border-2 border-amber-200 text-amber-900 mb-8 flex flex-col md:flex-row items-center justify-between gap-5">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-amber-200 flex items-center justify-center text-2xl flex-shrink-0">
+              🔒
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-amber-950">Week 2 is Currently Locked</h3>
+              <p class="text-xs text-amber-900/85 mt-1 leading-relaxed">
+                To steer into Week 2 (Mental Wellbeing), you must log at least <strong>5 daily check-ins</strong> in your Phase 1 physical habit tracker.
+              </p>
+              <div class="mt-2.5 flex items-center gap-3">
+                <div class="w-48 bg-amber-200/80 rounded-full h-2.5 overflow-hidden">
+                  <div id="week2UnlockProgressBar" class="bg-amber-600 h-full rounded-full transition-all duration-500" style="width: 20%;"></div>
+                </div>
+                <span class="text-xs font-black text-amber-900" id="week2ProgressText">1 / 5 check-ins completed</span>
+              </div>
+            </div>
+          </div>
+          <button onclick="navigateTo('tracker')" class="px-5 py-2.5 bg-amber-800 hover:bg-amber-900 text-white font-bold text-xs rounded-xl transition whitespace-nowrap shadow">
+            Go to Habit Tracker & Log Today
+          </button>
+        </div>
+
+        <!-- Unlocked celebration banner -->
+        <div id="week2UnlockedBanner" class="hidden p-5 rounded-2xl bg-emerald-50 border-2 border-emerald-200 text-emerald-950 mb-8 flex items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🎉</span>
+            <div>
+              <h4 class="font-bold text-sm text-emerald-900">Module Unlocked: Ka Rawe!</h4>
+              <p class="text-xs text-emerald-800">You've logged 5+ daily check-ins and proven your commitment. Welcome to Week 2!</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 bg-emerald-200 text-emerald-900 text-xs font-bold rounded-lg uppercase">Active Access</span>
+        </div>
+
+        <!-- Week 2 Overview Content -->
+        <div class="max-w-3xl mb-8">
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+            Week 2: Mental Wellbeing
+          </h2>
+          <p class="text-base text-tokotoko-espresso/80 mt-2 font-medium">
+            <em>"Importance of our words, self-talk, and reprogramming our defaults."</em>
+          </p>
+          <p class="text-xs sm:text-sm text-tokotoko-espresso/85 mt-3 leading-relaxed">
+            Building a strong physical body clears the fog. Now, we dive into how our thoughts, conflict resolution tools, and words shape the home environment and our prospects for employment.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+          <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50 flex flex-col">
+            <div class="w-10 h-10 rounded-xl bg-tokotoko-primary text-white flex items-center justify-center font-bold mb-3 shadow-sm">
+              
+            </div>
+            <h4 class="font-bold text-tokotoko-espresso text-sm">Talanoa Session Focus</h4>
+            <p class="text-xs text-tokotoko-espresso/80 mt-1.5 leading-relaxed">
+              <strong>Creating Space & Conflict Tools:</strong> De-escalating tensions at home and on worksites. Recognizing internal triggers.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50 flex flex-col">
+            <div class="w-10 h-10 rounded-xl bg-tokotoko-primary text-white flex items-center justify-center font-bold mb-3 shadow-sm">
+              👥
+            </div>
+            <h4 class="font-bold text-tokotoko-espresso text-sm">Guest Speaker</h4>
+            <p class="text-xs text-tokotoko-espresso/80 mt-1.5 leading-relaxed">
+              <strong>Local Mental / Hauora Health Providers:</strong> Real discussions on men's and family wellbeing, breaking generational patterns.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50 flex flex-col">
+            <div class="w-10 h-10 rounded-xl bg-tokotoko-primary text-white flex items-center justify-center font-bold mb-3 shadow-sm">
+              ⏱️
+            </div>
+            <h4 class="font-bold text-tokotoko-espresso text-sm">Week 2 Practical Challenge</h4>
+            <p class="text-xs text-tokotoko-espresso/80 mt-1.5 leading-relaxed">
+              <strong>5-Minute Listening Challenge:</strong> Ask family or your partner how their day was without inserting yourself into the conversation.
+            </p>
+          </div>
+        </div>
+
+        <!-- Weekly Rhythm Connection -->
+        <div class="bg-[#F0ECE1] p-5 rounded-2xl border border-tokotoko-sage flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <span class="text-xs font-bold text-tokotoko-secondary uppercase tracking-wider">Weekly Rhythm Schedule</span>
+            <h5 class="text-sm font-bold text-tokotoko-espresso">Wednesday In-Person Talanoa • Friday Walking Group Connection</h5>
+            <p class="text-xs text-tokotoko-espresso/75 mt-0.5">Physical and mental fitness go hand in hand every Friday morning.</p>
+          </div>
+          <button onclick="navigateTo('tracker')" class="px-5 py-2.5 bg-tokotoko-primary hover:bg-tokotoko-primaryDark text-white text-xs font-bold rounded-xl transition shadow">
+            Log Today's Habits
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VIEW 2: Option 1 Selected (Congratulations & Encouragement) -->
+    <section id="view-option1" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
+        
+        <div class="flex items-center justify-between mb-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tokotoko-sage/30 text-tokotoko-espresso text-xs font-bold uppercase tracking-wider">
+            <span>⭐</span> Pathway 1: Whānau Champion
+          </span>
+          <button onclick="navigateTo('selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
+            ← Change Selection
+          </button>
+        </div>
+
+        <div class="max-w-3xl">
+          <div class="w-14 h-14 rounded-2xl bg-tokotoko-primary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">
+            💪
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+            Ka Rawe! Outstanding Commitment to Your Whānau
+          </h2>
+          <p class="mt-3 text-base sm:text-lg text-tokotoko-espresso/85 font-medium leading-relaxed">
+            Prioritizing your physical health is one of the most powerful gifts you can give to yourself and your loved ones. You are building the strength, longevity, and mental clarity required to be truly present.
+          </p>
+        </div>
+
+        <!-- Pillars of Strength Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 my-8">
+          <div class="bg-white p-5 rounded-2xl border border-tokotoko-sage/40">
+            <div class="w-8 h-8 rounded-lg bg-tokotoko-primary/15 text-tokotoko-primary flex items-center justify-center font-bold mb-3">
+              1
+            </div>
+            <h4 class="font-bold text-tokotoko-espresso text-sm">Role Model Consistency</h4>
+            <p class="text-xs text-tokotoko-espresso/70 mt-1 leading-relaxed">
+              Your actions show tamariki and brothers what resilience looks like in real time.
+            </p>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-tokotoko-sage/40">
+            <div class="w-8 h-8 rounded-lg bg-tokotoko-primary/15 text-tokotoko-primary flex items-center justify-center font-bold mb-3">
+              2
+            </div>
+            <h4 class="font-bold text-tokotoko-espresso text-sm">Fuel for Work Readiness</h4>
+            <p class="text-xs text-tokotoko-espresso/70 mt-1 leading-relaxed">
+              Physical endurance translates directly into energy and stamina for future employment.
+            </p>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-tokotoko-sage/40">
+            <div class="w-8 h-8 rounded-lg bg-tokotoko-primary/15 text-tokotoko-primary flex items-center justify-center font-bold mb-3">
+              3
+            </div>
+            <h4 class="font-bold text-tokotoko-espresso text-sm">Clear Mind for Talanoa</h4>
+            <p class="text-xs text-tokotoko-espresso/70 mt-1 leading-relaxed">
+              Exercise flushes out stress so you can engage with patience and clear communication.
+            </p>
+          </div>
+        </div>
+
+        <!-- Action Row -->
+        <div class="bg-[#F0ECE1] rounded-2xl p-5 border border-tokotoko-sage/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <h5 class="font-bold text-tokotoko-espresso text-sm">Next Step: Log your daily consistency</h5>
+            <p class="text-xs text-tokotoko-espresso/70">Record your movement today to keep your streak alive.</p>
+          </div>
+          <button onclick="navigateTo('tracker')" class="px-5 py-2.5 bg-tokotoko-primary hover:bg-tokotoko-primaryDark text-white text-xs font-bold rounded-xl transition shadow">
+            Open Habit Tracker
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VIEW 3: Option 2 Selected (Exercise NZ Subsidised Gym Membership) -->
+    <section id="view-option2" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
+        
+        <div class="flex items-center justify-between mb-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tokotoko-secondary/20 text-[#635b00] text-xs font-bold uppercase tracking-wider">
+            <span>🏷️</span> Pathway 2: Subsidised Gym Access
+          </span>
+          <button onclick="navigateTo('selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
+            ← Change Selection
+          </button>
+        </div>
+
+        <div class="max-w-3xl mb-6">
+          <div class="w-14 h-14 rounded-2xl bg-tokotoko-secondary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">
+            🏋️
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+            Subsidised Gym Memberships in New Zealand
+          </h2>
+          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
+            Exercise New Zealand provides access to subsidised gym memberships for eligible community members across Aotearoa. Explore their nationwide interactive map to discover participating fitness facilities in your region.
+          </p>
+        </div>
+
+        <!-- External link card -->
+        <div class="bg-white rounded-2xl p-6 border-2 border-tokotoko-sage/60 mb-6">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-5">
+            <div>
+              <div class="inline-block px-2.5 py-0.5 rounded bg-tokotoko-secondary/20 text-tokotoko-espresso text-[11px] font-bold uppercase tracking-wide mb-2">
+                Official Exercise NZ Portal
+              </div>
+              <h3 class="text-lg font-bold text-tokotoko-espresso">Exercise NZ Subsidised Gym Memberships Map</h3>
+              <p class="text-xs text-tokotoko-espresso/70 mt-1 max-w-xl">
+                Locate gyms offering discounted rates, check entry eligibility, and complete your registration directly online.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="https://www.exercise.org.nz/subsidised-gym-memberships-map/?gad_source=1&gad_campaignid=21068649576&gbraid=0AAAAADwIlbfzVwA5K1ebz03Wcc0MCjBkD&gclid=EAIaIQobChMInpugrva3lwMVIOEWBR2e7xl9EAAYASAAEgKzLPD_BwE" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="px-5 py-3 bg-tokotoko-secondary hover:bg-yellow-600 text-white font-bold text-xs rounded-xl transition shadow flex items-center justify-center gap-2 whitespace-nowrap">
+                <span>Open Subsidised Map</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+              <button onclick="copyToClipboard('https://www.exercise.org.nz/subsidised-gym-memberships-map/')" class="px-4 py-3 bg-[#F2EFE9] hover:bg-tokotoko-sage/30 text-tokotoko-espresso text-xs font-bold rounded-xl transition border border-tokotoko-sage">
+                Copy Link
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Step Sign-Up Guide -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="p-4 rounded-xl bg-[#F0ECE1] border border-tokotoko-sage/50">
+            <span class="text-xs font-black text-tokotoko-secondary block">STEP 1</span>
+            <h5 class="text-xs font-bold text-tokotoko-espresso mt-1">Locate Your Facility</h5>
+            <p class="text-[11px] text-tokotoko-espresso/70 mt-1">Search the map for local gyms in your suburb or town.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-[#F0ECE1] border border-tokotoko-sage/50">
+            <span class="text-xs font-black text-tokotoko-secondary block">STEP 2</span>
+            <h5 class="text-xs font-bold text-tokotoko-espresso mt-1">Confirm Criteria</h5>
+            <p class="text-[11px] text-tokotoko-espresso/70 mt-1">Verify student, community services, or job seeker discount eligibility.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-[#F0ECE1] border border-tokotoko-sage/50">
+            <span class="text-xs font-black text-tokotoko-secondary block">STEP 3</span>
+            <h5 class="text-xs font-bold text-tokotoko-espresso mt-1">Sign Up & Log Habits</h5>
+            <p class="text-[11px] text-tokotoko-espresso/70 mt-1">Activate membership and record your workouts in the Tokotoko tracker.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VIEW 4: Option 3 Selected (Sport Northland Green Prescription) -->
+    <section id="view-option3" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
+        
+        <div class="flex items-center justify-between mb-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tokotoko-primary/20 text-tokotoko-primaryDark text-xs font-bold uppercase tracking-wider">
+            <span>🤝</span> Pathway 3: Supported Coaching
+          </span>
+          <button onclick="navigateTo('selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
+            ← Change Selection
+          </button>
+        </div>
+
+        <div class="max-w-3xl mb-6">
+          <div class="w-14 h-14 rounded-2xl bg-tokotoko-primary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">
+            🌿
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+            Sport Northland Green Prescription (GRx)
+          </h2>
+          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
+            Get paired with a dedicated Healthy Lifestyle Advisor who understands your unique situation, physical capabilities, and whānau commitments.
+          </p>
+        </div>
+
+        <!-- External link card -->
+        <div class="bg-white rounded-2xl p-6 border-2 border-tokotoko-sage/60 mb-6">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-5">
+            <div>
+              <div class="inline-block px-2.5 py-0.5 rounded bg-tokotoko-sage/30 text-tokotoko-espresso text-[11px] font-bold uppercase tracking-wide mb-2">
+                Sport Northland • Ngā Mahi a te Rēhia
+              </div>
+              <h3 class="text-lg font-bold text-tokotoko-espresso">Green Prescription Support Hub</h3>
+              <p class="text-xs text-tokotoko-espresso/70 mt-1 max-w-xl">
+                Free support program connecting Northland whānau with physical activity guidance, nutrition support, and community walking groups.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="https://www.sportnorthland.co.nz/nga-mahi-a-te-rehia-l-get-active/green-prescription-1" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="px-5 py-3 bg-tokotoko-primary hover:bg-tokotoko-primaryDark text-white font-bold text-xs rounded-xl transition shadow flex items-center justify-center gap-2 whitespace-nowrap">
+                <span>Visit Sport Northland GRx</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+              <button onclick="copyToClipboard('https://www.sportnorthland.co.nz/nga-mahi-a-te-rehia-l-get-active/green-prescription-1')" class="px-4 py-3 bg-[#F2EFE9] hover:bg-tokotoko-sage/30 text-tokotoko-espresso text-xs font-bold rounded-xl transition border border-tokotoko-sage">
+                Copy Link
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- How it helps you -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-[#F0ECE1] border border-tokotoko-sage/50">
+            <h5 class="text-xs font-bold text-tokotoko-espresso">How to Get Connected</h5>
+            <p class="text-[11px] text-tokotoko-espresso/70 mt-1 leading-relaxed">
+              Ask your GP / doctor or nurse for a Green Prescription referral, or self-refer directly through Sport Northland's online form.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-[#F0ECE1] border border-tokotoko-sage/50">
+            <h5 class="text-xs font-bold text-tokotoko-espresso">Connection to Tokotoko Weekly Rhythm</h5>
+            <p class="text-[11px] text-tokotoko-espresso/70 mt-1 leading-relaxed">
+              Sport Northland is our featured guest speaker in Week 1, and pairs directly with our Friday morning walking group.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-auto border-t border-tokotoko-sage/40 bg-[#EBE7DF] text-tokotoko-espresso/70 text-xs py-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+      <div>
+        <p class="font-bold text-tokotoko-espresso">Tokotoko Men's Group • Vaka Journey</p>
+        <p class="text-[11px]">From unemployment to sustainable employment placements.</p>
+      </div>
+      <p class="text-[11px]">Whangārei, Northland • Te Tai Tokerau</p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toastNotification" class="fixed bottom-5 right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="bg-tokotoko-espresso text-white px-4 py-3 rounded-2xl shadow-2xl border border-tokotoko-sage flex items-center gap-3">
+      <div id="toastIcon" class="w-6 h-6 rounded-full bg-tokotoko-primary text-white flex items-center justify-center text-xs font-bold">✓</div>
+      <span id="toastMessage" class="text-xs font-medium">Notification</span>
+    </div>
+  </div>
+
+  <script>
+    // State management
+    const views = {
+      auth: document.getElementById('view-auth'),
+      selector: document.getElementById('view-selector'),
+      tracker: document.getElementById('view-tracker'),
+      option1: document.getElementById('view-option1'),
+      option2: document.getElementById('view-option2'),
+      option3: document.getElementById('view-option3'),
+      week2: document.getElementById('view-week2'),
+    };
+    const navBackBtn = document.getElementById('navBackBtn');
+
+    // Current active authenticated session user
+    let currentUser = null;
+    let authMode = 'signin'; // 'signin' or 'register'
+
+    // Multi-user habits database simulation in memory
+    let userDatabase = {
+      'client@tokotoko.org': {
+        name: 'Tokotoko Brother',
+        password: 'password',
+        logs: {}
+      }
+    };
+
+    const HABIT_KEYS = ['movement', 'kai', 'sleep', 'whanau', 'mindset'];
+    const UNLOCK_THRESHOLD = 5; // 5 logged check-ins required to unlock Week 2
+
+    // Helper: format today's date in YYYY-MM-DD
+    function getTodayString() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+
+    // Toggle between Sign In and Registration
+    function toggleAuthTab(mode) {
+      authMode = mode;
+      const title = document.getElementById('authFormTitle');
+      const btn = document.getElementById('authSubmitBtn');
+      const nameContainer = document.getElementById('authNameFieldContainer');
+      const tabSignIn = document.getElementById('tabSignIn');
+      const tabRegister = document.getElementById('tabRegister');
+
+      if (mode === 'register') {
+        title.textContent = 'Join Tokotoko Vaka';
+        btn.querySelector('span').textContent = 'Create Account & Begin';
+        nameContainer.classList.remove('hidden');
+        tabSignIn.className = 'w-1/2 py-2 text-xs font-bold rounded-lg transition text-tokotoko-espresso/70 hover:text-tokotoko-espresso';
+        tabRegister.className = 'w-1/2 py-2 text-xs font-bold rounded-lg transition bg-white text-tokotoko-espresso shadow-sm';
+      } else {
+        title.textContent = 'Welcome to the Vaka';
+        btn.querySelector('span').textContent = 'Sign In to Vaka';
+        nameContainer.classList.add('hidden');
+        tabSignIn.className = 'w-1/2 py-2 text-xs font-bold rounded-lg transition bg-white text-tokotoko-espresso shadow-sm';
+        tabRegister.className = 'w-1/2 py-2 text-xs font-bold rounded-lg transition text-tokotoko-espresso/70 hover:text-tokotoko-espresso';
+      }
+    }
+
+    // Handle Authentication Submission
+    function handleAuthSubmit(e) {
+      if (e) e.preventDefault();
+      const email = document.getElementById('authEmail').value.trim().toLowerCase();
+      const password = document.getElementById('authPassword').value;
+      const name = document.getElementById('authName').value.trim();
+
+      if (!email || !password) {
+        showToast('Please enter an email and password', false);
+        return;
+      }
+
+      if (authMode === 'register') {
+        const displayName = name || email.split('@')[0];
+        userDatabase[email] = {
+          name: displayName,
+          password: password,
+          logs: {}
+        };
+        currentUser = { email, name: displayName };
+        showToast('Account created! Welcome to Tokotoko, ' + displayName);
+      } else {
+        // Sign In
+        if (!userDatabase[email]) {
+          userDatabase[email] = {
+            name: email.split('@')[0],
+            password: password,
+            logs: {}
+          };
+        }
+        currentUser = { email, name: userDatabase[email].name };
+        showToast('Welcome back, ' + currentUser.name + '!');
+      }
+
+      updateUserUIAfterLogin();
+      // Directs the user immediately to Physical Wellbeing page after login
+      navigateTo('selector');
+    }
+
+    function updateUserUIAfterLogin() {
+      document.getElementById('navUnauthActions').classList.add('hidden');
+      document.getElementById('navAuthenticatedActions').classList.remove('hidden');
+      document.getElementById('userDisplayNameHeader').textContent = currentUser.name;
+      document.getElementById('userEmailHeader').textContent = currentUser.email;
+      document.getElementById('userAvatarText').textContent = currentUser.name.charAt(0).toUpperCase();
+      
+      initTracker();
+      updateUnlockStatus();
+    }
+
+    function handleSignOut() {
+      currentUser = null;
+      document.getElementById('navAuthenticatedActions').classList.add('hidden');
+      document.getElementById('navUnauthActions').classList.remove('hidden');
+      navigateTo('auth');
+      showToast('You have signed out safely.');
+    }
+
+    function handleLogoClick() {
+      if (currentUser) {
+        navigateTo('selector');
+      } else {
+        navigateTo('auth');
+      }
+    }
+
+    // Demo user autofill
+    function fillDemoUser(name, email, seedDays) {
+      document.getElementById('authEmail').value = email;
+      document.getElementById('authPassword').value = 'password123';
+      
+      if (!userDatabase[email]) {
+        userDatabase[email] = { name: name, password: 'password123', logs: {} };
+      }
+      
+      const now = new Date();
+      for (let i = 0; i < seedDays; i++) {
+        const d = new Date(now);
+        d.setDate(d.getDate() - i);
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const dayStr = String(d.getDate()).padStart(2, '0');
+        const dateKey = `${y}-${m}-${dayStr}`;
+        userDatabase[email].logs[dateKey] = {
+          movement: true,
+          kai: true,
+          sleep: true,
+          whanau: true,
+          mindset: true,
+          notes: `Day ${i + 1} completion towards Phase 1 physical goal.`,
+          savedAt: d.toISOString()
+        };
+      }
+
+      handleAuthSubmit();
+    }
+
+    function updateUnlockStatus() {
+      if (!currentUser) return;
+      const logs = userDatabase[currentUser.email]?.logs || {};
+      const count = Object.keys(logs).length;
+
+      const progressBar = document.getElementById('week2UnlockProgressBar');
+      const progressText = document.getElementById('week2ProgressText');
+      const lockedBanner = document.getElementById('week2LockedBanner');
+      const unlockedBanner = document.getElementById('week2UnlockedBanner');
+      const navLockIcon = document.getElementById('navLockIcon');
+      const navBadge = document.getElementById('week2NavBadge');
+      const trackerTarget = document.getElementById('totalCheckins');
+      const trackerLabel = document.getElementById('trackerLockStatusLabel');
+
+      const pct = Math.min(100, Math.round((count / UNLOCK_THRESHOLD) * 100));
+
+      if (progressBar) progressBar.style.width = pct + '%';
+      if (progressText) progressText.textContent = `${count} / ${UNLOCK_THRESHOLD} check-ins completed`;
+
+      if (trackerTarget) {
+        trackerTarget.textContent = `${count} / ${UNLOCK_THRESHOLD}`;
+      }
+
+      if (count >= UNLOCK_THRESHOLD) {
+        if (lockedBanner) lockedBanner.classList.add('hidden');
+        if (unlockedBanner) unlockedBanner.classList.remove('hidden');
+        if (navLockIcon) navLockIcon.textContent = '🔓';
+        if (trackerLabel) trackerLabel.textContent = 'Week 2 Unlocked! 🎉';
+        if (navBadge) {
+          navBadge.classList.remove('border-yellow-400/40', 'bg-yellow-400/10', 'text-yellow-200');
+          navBadge.classList.add('border-emerald-400/60', 'bg-emerald-400/20', 'text-emerald-200');
+        }
+      } else {
+        if (lockedBanner) lockedBanner.classList.remove('hidden');
+        if (unlockedBanner) unlockedBanner.classList.add('hidden');
+        if (navLockIcon) navLockIcon.textContent = '🔒';
+        if (trackerLabel) trackerLabel.textContent = 'to unlock Week 2';
+        if (navBadge) {
+          navBadge.classList.add('border-yellow-400/40', 'bg-yellow-400/10', 'text-yellow-200');
+          navBadge.classList.remove('border-emerald-400/60', 'bg-emerald-400/20', 'text-emerald-200');
+        }
+      }
+    }
+
+    // Initialize Tracker State for active user
+    function initTracker() {
+      const dateInput = document.getElementById('trackerDate');
+      if (dateInput) {
+        dateInput.value = getTodayString();
+      }
+      loadDateData(getTodayString());
+      renderHistoryAndMetrics();
+      updateUnlockStatus();
+    }
+
+    // Pathway switcher function
+    function selectPathway(number) {
+      if (number === 1) {
+        navigateTo('option1');
+        showToast('Viewing your Physical Wellbeing Encouragement!');
+      } else if (number === 2) {
+        navigateTo('option2');
+        showToast('Viewing Subsidised Gym Membership resources.');
+      } else if (number === 3) {
+        navigateTo('option3');
+        showToast('Viewing Sport Northland Green Prescription Coach options.');
+      }
+    }
+
+    function navigateTo(viewKey) {
+      if (!currentUser && viewKey !== 'auth') {
+        showToast('Please sign in first', false);
+        viewKey = 'auth';
+      }
+
+      Object.keys(views).forEach(key => {
+        if (views[key]) {
+          views[key].classList.add('hidden');
+        }
+      });
+
+      if (views[viewKey]) {
+        views[viewKey].classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      if (viewKey === 'selector' || viewKey === 'auth') {
+        navBackBtn.classList.add('hidden');
+      } else {
+        navBackBtn.classList.remove('hidden');
+      }
+
+      if (viewKey === 'tracker') {
+        renderHistoryAndMetrics();
+      } else if (viewKey === 'week2') {
+        updateUnlockStatus();
+      }
+    }
+
+    // Load data for a specific date into the checklist form
+    function loadDateData(dateStr) {
+      if (!currentUser) return;
+      const userLogs = userDatabase[currentUser.email]?.logs || {};
+      const record = userLogs[dateStr] || {
+        movement: false,
+        kai: false,
+        sleep: false,
+        whanau: false,
+        mindset: false,
+        notes: ''
+      };
+
+      HABIT_KEYS.forEach(k => {
+        const el = document.getElementById(`habit-${k}`);
+        if (el) el.checked = !!record[k];
+      });
+
+      const notesEl = document.getElementById('habitNotes');
+      if (notesEl) {
+        notesEl.value = record.notes || '';
+      }
+
+      const statusEl = document.getElementById('saveStatusIndicator');
+      if (statusEl) {
+        statusEl.textContent = userLogs[dateStr] ? '✓ Saved entry' : 'Draft / Unsaved';
+      }
+    }
+
+    // Date picker change handler
+    function onDateChange() {
+      const dateStr = document.getElementById('trackerDate').value;
+      if (dateStr) {
+        loadDateData(dateStr);
+      }
+    }
+
+    function setTodayDate() {
+      const today = getTodayString();
+      document.getElementById('trackerDate').value = today;
+      loadDateData(today);
+    }
+
+    // Save habits for currently selected date
+    function saveDailyHabits() {
+      if (!currentUser) return;
+      const dateStr = document.getElementById('trackerDate').value || getTodayString();
+      
+      const entry = {
+        movement: document.getElementById('habit-movement').checked,
+        kai: document.getElementById('habit-kai').checked,
+        sleep: document.getElementById('habit-sleep').checked,
+        whanau: document.getElementById('habit-whanau').checked,
+        mindset: document.getElementById('habit-mindset').checked,
+        notes: document.getElementById('habitNotes').value.trim(),
+        savedAt: new Date().toISOString()
+      };
+
+      if (!userDatabase[currentUser.email].logs) {
+        userDatabase[currentUser.email].logs = {};
+      }
+
+      userDatabase[currentUser.email].logs[dateStr] = entry;
+      renderHistoryAndMetrics();
+      updateUnlockStatus();
+
+      const statusEl = document.getElementById('saveStatusIndicator');
+      if (statusEl) {
+        statusEl.textContent = '✓ Saved entry for ' + dateStr;
+      }
+      showToast('Daily habits saved for ' + dateStr + '!');
+
+      const count = Object.keys(userDatabase[currentUser.email].logs).length;
+      if (count === UNLOCK_THRESHOLD) {
+        showToast('🎉 Awesome mahi! You have unlocked Week 2: Mental Wellbeing!');
+      }
+    }
+
+    // Calculate streak and render past logs
+    function renderHistoryAndMetrics() {
+      if (!currentUser) return;
+      const userLogs = userDatabase[currentUser.email]?.logs || {};
+      const logDates = Object.keys(userLogs).sort().reverse();
+      
+      // Calculate streak
+      let streak = 0;
+      let checkDate = new Date();
+      
+      const todayStr = getTodayString();
+      if (!userLogs[todayStr]) {
+        checkDate.setDate(checkDate.getDate() - 1);
+      }
+
+      while (true) {
+        const year = checkDate.getFullYear();
+        const month = String(checkDate.getMonth() + 1).padStart(2, '0');
+        const day = String(checkDate.getDate()).padStart(2, '0');
+        const dateKey = `${year}-${month}-${day}`;
+
+        if (userLogs[dateKey]) {
+          streak++;
+          checkDate.setDate(checkDate.getDate() - 1);
+        } else {
+          break;
+        }
+      }
+
+      const streakEl = document.getElementById('streakCount');
+      if (streakEl) streakEl.textContent = streak;
+
+      // Render recent history list
+      const listEl = document.getElementById('historyLogList');
+      if (!listEl) return;
+
+      if (logDates.length === 0) {
+        listEl.innerHTML = `
+          <div class="text-center py-6 text-xs text-tokotoko-espresso/60">
+            No entries recorded yet.<br>Complete your first check-in above!
+          </div>
+        `;
+        return;
+      }
+
+      const recentDates = logDates.slice(0, 7);
+      listEl.innerHTML = recentDates.map(d => {
+        const item = userLogs[d];
+        const completedCount = HABIT_KEYS.filter(k => item[k]).length;
+        const isCurrentViewDate = document.getElementById('trackerDate').value === d;
+
+        return `
+          <div onclick="selectHistoryDate('${d}')" class="p-2.5 rounded-xl border ${isCurrentViewDate ? 'border-tokotoko-primary bg-[#F2EFE9]' : 'border-tokotoko-sage/30 bg-white hover:bg-tokotoko-base'} cursor-pointer transition flex items-center justify-between text-xs">
+            <div>
+              <div class="font-bold text-tokotoko-espresso">${formatDisplayDate(d)}</div>
+              <div class="text-[11px] text-tokotoko-espresso/70">${completedCount} of 5 pillars checked</div>
+            </div>
+            <div class="flex items-center gap-1">
+              <span class="w-6 h-6 rounded-full ${completedCount >= 3 ? 'bg-tokotoko-primary text-white' : 'bg-tokotoko-sage/40 text-tokotoko-espresso'} flex items-center justify-center font-bold text-[11px]">
+                ${completedCount}
+              </span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function selectHistoryDate(dateStr) {
+      document.getElementById('trackerDate').value = dateStr;
+      loadDateData(dateStr);
+      renderHistoryAndMetrics();
+      showToast('Loaded records for ' + dateStr);
+    }
+
+    function formatDisplayDate(dateStr) {
+      try {
+        const parts = dateStr.split('-');
+        const d = new Date(parts[0], parts[1] - 1, parts[2]);
+        return d.toLocaleDateString('en-NZ', { weekday: 'short', month: 'short', day: 'numeric' });
+      } catch (e) {
+        return dateStr;
+      }
+    }
+
+    function clearHistoryConfirmation() {
+      if (!currentUser) return;
+      userDatabase[currentUser.email].logs = {};
+      loadDateData(getTodayString());
+      renderHistoryAndMetrics();
+      updateUnlockStatus();
+      showToast('Habit history reset for fresh start.');
+    }
+
+    // Custom Toast notification
+    function showToast(message, isCheck = true) {
+      const toast = document.getElementById('toastNotification');
+      const msgEl = document.getElementById('toastMessage');
+      const iconEl = document.getElementById('toastIcon');
+
+      msgEl.textContent = message;
+      iconEl.textContent = isCheck ? '✓' : 'ℹ';
+
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3200);
+    }
+
+    // Safe clipboard copy helper using execCommand
+    function copyToClipboard(text) {
+      try {
+        const dummy = document.createElement("input");
+        document.body.appendChild(dummy);
+        dummy.value = text;
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+        showToast('Resource link copied to clipboard!');
+      } catch (err) {
+        showToast('Link: ' + text);
+      }
+    }
+
+    // Startup initialization
+    window.addEventListener('DOMContentLoaded', () => {
+      navigateTo('auth');
+    });
+  </script>
+</body>
+</html>
