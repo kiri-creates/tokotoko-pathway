@@ -95,22 +95,28 @@
       </div>
       
       <!-- Right Navigation Actions for Authenticated Users -->
-      <div id="navAuthenticatedActions" class="hidden flex items-center gap-1.5 sm:gap-2.5">
+      <div id="navAuthenticatedActions" class="hidden flex items-center gap-1 sm:gap-2">
         <!-- Week 1 Physical Nav Link -->
-        <button onclick="navigateTo('selector')" class="text-xs sm:text-sm font-semibold bg-white/10 hover:bg-white/20 text-white px-2.5 sm:px-3 py-1.5 rounded-xl transition flex items-center gap-1 border border-white/15">
-          <span>🌿</span> <span class="hidden md:inline">Week 1:</span> Physical
+        <button onclick="navigateTo('selector')" class="text-xs sm:text-sm font-semibold bg-white/10 hover:bg-white/20 text-white px-2 sm:px-2.5 py-1.5 rounded-xl transition flex items-center gap-1 border border-white/15">
+          <span>🌿</span> <span class="hidden lg:inline">Wk 1:</span> Physical
         </button>
 
         <!-- Week 2 Mental Nav Link -->
-        <button onclick="navigateTo('mental-selector')" id="week2NavBadge" class="inline-flex items-center gap-1 text-xs sm:text-sm font-semibold px-2.5 sm:px-3 py-1.5 rounded-xl border border-yellow-400/40 bg-yellow-400/10 text-yellow-200 hover:bg-yellow-400/20 transition">
+        <button onclick="navigateTo('mental-selector')" id="week2NavBadge" class="inline-flex items-center gap-1 text-xs sm:text-sm font-semibold px-2 sm:px-2.5 py-1.5 rounded-xl border border-yellow-400/40 bg-yellow-400/10 text-yellow-200 hover:bg-yellow-400/20 transition">
           <span id="navLockIconW2">🔒</span>
-          <span>🧠 <span class="hidden md:inline">Week 2:</span> Mental</span>
+          <span>🧠 <span class="hidden lg:inline">Wk 2:</span> Mental</span>
         </button>
 
         <!-- Week 3 Spiritual Nav Link -->
-        <button onclick="navigateTo('spiritual-selector')" id="week3NavBadge" class="inline-flex items-center gap-1 text-xs sm:text-sm font-semibold px-2.5 sm:px-3 py-1.5 rounded-xl border border-yellow-400/40 bg-yellow-400/10 text-yellow-200 hover:bg-yellow-400/20 transition">
+        <button onclick="navigateTo('spiritual-selector')" id="week3NavBadge" class="inline-flex items-center gap-1 text-xs sm:text-sm font-semibold px-2 sm:px-2.5 py-1.5 rounded-xl border border-yellow-400/40 bg-yellow-400/10 text-yellow-200 hover:bg-yellow-400/20 transition">
           <span id="navLockIconW3">🔒</span>
-          <span>✨ <span class="hidden md:inline">Week 3:</span> Spiritual</span>
+          <span>✨ <span class="hidden lg:inline">Wk 3:</span> Spiritual</span>
+        </button>
+
+        <!-- Week 4 Relationships Nav Link -->
+        <button onclick="navigateTo('relationships-selector')" id="week4NavBadge" class="inline-flex items-center gap-1 text-xs sm:text-sm font-semibold px-2 sm:px-2.5 py-1.5 rounded-xl border border-yellow-400/40 bg-yellow-400/10 text-yellow-200 hover:bg-yellow-400/20 transition">
+          <span id="navLockIconW4">🔒</span>
+          <span>🤝 <span class="hidden lg:inline">Wk 4:</span> Relationships</span>
         </button>
 
         <!-- Habit Tracker Button -->
@@ -123,7 +129,7 @@
         <div class="relative group">
           <button class="flex items-center gap-2 bg-black/25 hover:bg-black/40 text-white px-2.5 py-1.5 rounded-xl border border-white/15 transition text-xs font-bold">
             <div class="w-6 h-6 rounded-full bg-tokotoko-secondary flex items-center justify-center text-[10px] font-black uppercase" id="userAvatarText">T</div>
-            <span class="hidden lg:inline" id="userDisplayNameHeader">Brother</span>
+            <span class="hidden xl:inline" id="userDisplayNameHeader">Brother</span>
             <svg class="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="absolute right-0 mt-1 w-56 bg-tokotoko-cardBg text-tokotoko-espresso rounded-xl shadow-2xl border border-tokotoko-sage/60 py-1.5 hidden group-hover:block z-50">
@@ -139,6 +145,9 @@
             </button>
             <button onclick="navigateTo('spiritual-selector')" class="w-full text-left px-3 py-1.5 text-xs hover:bg-tokotoko-sage/20 transition flex items-center gap-2">
               ✨ Week 3: Spiritual Pathways
+            </button>
+            <button onclick="navigateTo('relationships-selector')" class="w-full text-left px-3 py-1.5 text-xs hover:bg-tokotoko-sage/20 transition flex items-center gap-2">
+              🤝 Week 4: Relationships & Brotherhood
             </button>
             <button onclick="navigateTo('tracker')" class="w-full text-left px-3 py-1.5 text-xs hover:bg-tokotoko-sage/20 transition flex items-center gap-2">
               📝 Habit Progress Tracker
@@ -231,15 +240,18 @@
         <!-- Quick Demo Accounts Assist -->
         <div class="mt-6 pt-4 border-t border-tokotoko-sage/40 text-center">
           <p class="text-[11px] text-tokotoko-espresso/70 mb-2 font-medium">Quick Demo Profiles:</p>
-          <div class="grid grid-cols-3 gap-1.5">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
             <button onclick="fillDemoUser('Rawiri (W1)', 'rawiri@tokotoko.org', 2)" class="py-1.5 px-1 bg-white border border-tokotoko-sage/60 rounded-lg text-[10px] font-bold text-tokotoko-espresso hover:bg-tokotoko-sage/20 transition">
               Rawiri (2 logs)
             </button>
             <button onclick="fillDemoUser('Tāne (W2)', 'tane@tokotoko.org', 5)" class="py-1.5 px-1 bg-white border border-tokotoko-sage/60 rounded-lg text-[10px] font-bold text-tokotoko-espresso hover:bg-tokotoko-sage/20 transition">
               Tāne (5 logs)
             </button>
-            <button onclick="fillDemoUser('Hone (W3 Unlocked)', 'hone@tokotoko.org', 10)" class="py-1.5 px-1 bg-white border border-tokotoko-sage/60 rounded-lg text-[10px] font-bold text-tokotoko-espresso hover:bg-tokotoko-sage/20 transition">
+            <button onclick="fillDemoUser('Hone (W3)', 'hone@tokotoko.org', 10)" class="py-1.5 px-1 bg-white border border-tokotoko-sage/60 rounded-lg text-[10px] font-bold text-tokotoko-espresso hover:bg-tokotoko-sage/20 transition">
               Hone (10 logs)
+            </button>
+            <button onclick="fillDemoUser('Manaia (W4)', 'manaia@tokotoko.org', 15)" class="py-1.5 px-1 bg-white border border-tokotoko-sage/60 rounded-lg text-[10px] font-bold text-tokotoko-espresso hover:bg-tokotoko-sage/20 transition">
+              Manaia (15 logs)
             </button>
           </div>
         </div>
@@ -335,7 +347,7 @@
           </div>
           <div>
             <h4 class="text-sm font-bold text-tokotoko-espresso">Ready for your daily check-in?</h4>
-            <p class="text-xs text-tokotoko-espresso/70">Log movement, kai, sleep, and whānau to build toward unlocking Week 2 and Week 3.</p>
+            <p class="text-xs text-tokotoko-espresso/70">Log movement, kai, sleep, and whānau to build toward unlocking Weeks 2, 3, and 4.</p>
           </div>
         </div>
         <button onclick="navigateTo('tracker')" class="px-5 py-2.5 bg-tokotoko-primary hover:bg-tokotoko-primaryDark text-white text-xs font-bold rounded-xl transition shadow">
@@ -344,7 +356,7 @@
       </div>
     </section>
 
-    <!-- VIEW: Mental Wellbeing Selection Form / Questionnaire (Week 2) -->
+    <!-- VIEW: Mental Wellbeing Selection Form (Week 2) -->
     <section id="view-mental-selector" class="hidden relative z-10 transition-opacity duration-300">
       
       <!-- Lock gate check banner if under threshold -->
@@ -478,7 +490,7 @@
 
     </section>
 
-    <!-- VIEW: Spiritual Wellbeing Selection Form / Questionnaire (Week 3) -->
+    <!-- VIEW: Spiritual Wellbeing Selection Form (Week 3) -->
     <section id="view-spiritual-selector" class="hidden relative z-10 transition-opacity duration-300">
       
       <!-- Lock gate check banner if under threshold -->
@@ -610,6 +622,456 @@
         </button>
       </div>
 
+    </section>
+
+    <!-- VIEW: Relationships Selection Form / Questionnaire (Week 4) -->
+    <section id="view-relationships-selector" class="hidden relative z-10 transition-opacity duration-300">
+      
+      <!-- Lock gate check banner if under threshold -->
+      <div id="relationshipsLockedHeaderBanner" class="p-6 rounded-3xl bg-amber-50 border-2 border-amber-300 text-amber-950 mb-8 flex flex-col md:flex-row items-center justify-between gap-5 tokotoko-shadow">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-amber-200 text-amber-900 flex items-center justify-center text-2xl flex-shrink-0">
+            🔒
+          </div>
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-200/80 text-amber-900 text-[10px] font-bold uppercase tracking-wider mb-1">
+              Phase 1 Journey Requirement
+            </div>
+            <h3 class="text-lg font-black text-amber-950">Week 4 is Currently Locked</h3>
+            <p class="text-xs text-amber-900/85 mt-1 leading-relaxed max-w-xl">
+              To unlock full active access to the Relationships & Brotherhood module, log at least <strong>15 total check-ins</strong> in your Habit Tracker.
+            </p>
+            <div class="mt-3 flex items-center gap-3">
+              <div class="w-48 bg-amber-200 rounded-full h-2.5 overflow-hidden">
+                <div id="relationshipsGateProgressBar" class="bg-amber-600 h-full rounded-full transition-all duration-500" style="width: 0%;"></div>
+              </div>
+              <span class="text-xs font-black text-amber-950" id="relationshipsGateProgressText">0 / 15 check-ins logged</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
+          <button onclick="navigateTo('tracker')" class="px-5 py-2.5 bg-amber-800 hover:bg-amber-900 text-white font-bold text-xs rounded-xl transition shadow text-center">
+            Go to Habit Tracker
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Header -->
+      <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-tokotoko-secondary/25 text-[#5e5400] text-xs font-bold uppercase tracking-wider mb-4 border border-tokotoko-secondary/40">
+          <span>🤝</span>
+          Phase 1 • Week 4: Relationships & Brotherhood • Te Hoe
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+          Relationships Pathway
+        </h1>
+        <p class="mt-3 sm:mt-4 text-base sm:text-lg text-tokotoko-espresso/80 font-medium leading-relaxed">
+          Understanding the roles and responsibilities a man has in his whānau and community. The importance of being present for the relationships you hold, and the vital sense of belonging created when you choose the right circle around you.
+        </p>
+      </div>
+
+      <!-- 3 Relationships Pathway Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        
+        <!-- Relationships Option 1 Card: Roles and Responsibilities -->
+        <div onclick="selectRelationshipsPathway(1)" class="group cursor-pointer bg-tokotoko-cardBg rounded-3xl p-6 sm:p-8 border-2 border-tokotoko-sage/60 hover:border-tokotoko-primary transition duration-300 tokotoko-shadow flex flex-col justify-between hover:-translate-y-1 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-tokotoko-primary/5 rounded-bl-full pointer-events-none"></div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-tokotoko-primary text-white flex items-center justify-center font-bold text-lg mb-5 shadow-sm group-hover:bg-tokotoko-primaryDark transition">
+              1
+            </div>
+            <span class="inline-block px-2.5 py-0.5 rounded-full bg-tokotoko-primary/10 text-tokotoko-primary text-[10px] font-black uppercase tracking-wider mb-2">Whānau Anchor</span>
+            <h3 class="text-lg font-bold text-tokotoko-espresso mb-3 leading-snug group-hover:text-tokotoko-primary transition">
+              Roles & Responsibilities
+            </h3>
+            <p class="text-sm text-tokotoko-espresso/80 leading-relaxed font-normal">
+              "I want to understand the foundational duties I carry as a man in my whānau and community, and position myself realistically to live up to them."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-tokotoko-sage/30 flex items-center text-xs font-bold text-tokotoko-primary">
+            <span>Explore Roles, Video & Practical Tools</span>
+            <svg class="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </div>
+        </div>
+
+        <!-- Relationships Option 2 Card: Being Present -->
+        <div onclick="selectRelationshipsPathway(2)" class="group cursor-pointer bg-tokotoko-cardBg rounded-3xl p-6 sm:p-8 border-2 border-tokotoko-sage/60 hover:border-tokotoko-secondary transition duration-300 tokotoko-shadow flex flex-col justify-between hover:-translate-y-1 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-tokotoko-secondary/10 rounded-bl-full pointer-events-none"></div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-tokotoko-secondary text-white flex items-center justify-center font-bold text-lg mb-5 shadow-sm group-hover:bg-yellow-600 transition">
+              2
+            </div>
+            <span class="inline-block px-2.5 py-0.5 rounded-full bg-tokotoko-secondary/20 text-[#635b00] text-[10px] font-black uppercase tracking-wider mb-2">Attention & Affection</span>
+            <h3 class="text-lg font-bold text-tokotoko-espresso mb-3 leading-snug group-hover:text-tokotoko-secondary transition">
+              Being Present
+            </h3>
+            <p class="text-sm text-tokotoko-espresso/80 leading-relaxed font-normal">
+              "Your undivided attention and affection are life-giving for your partner and children. Discover what genuine presence looks and feels like."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-tokotoko-sage/30 flex items-center text-xs font-bold text-tokotoko-secondary">
+            <span>Explore Presence Framework & Tools</span>
+            <svg class="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </div>
+        </div>
+
+        <!-- Relationships Option 3 Card: Belonging / Building your Brotherhood -->
+        <div onclick="selectRelationshipsPathway(3)" class="group cursor-pointer bg-tokotoko-cardBg rounded-3xl p-6 sm:p-8 border-2 border-tokotoko-sage/60 hover:border-tokotoko-primary transition duration-300 tokotoko-shadow flex flex-col justify-between hover:-translate-y-1 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-tokotoko-sage/20 rounded-bl-full pointer-events-none"></div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-[#525317] text-white flex items-center justify-center font-bold text-lg mb-5 shadow-sm group-hover:bg-tokotoko-espresso transition">
+              3
+            </div>
+            <span class="inline-block px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase tracking-wider mb-2">Your Inner Circle</span>
+            <h3 class="text-lg font-bold text-tokotoko-espresso mb-3 leading-snug group-hover:text-tokotoko-primary transition">
+              Belonging: Building Brotherhood
+            </h3>
+            <p class="text-sm text-tokotoko-espresso/80 leading-relaxed font-normal">
+              "Who you surround yourself with shapes who you become. Experience true brotherhood, belonging, and healthy peer accountability."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-tokotoko-sage/30 flex items-center text-xs font-bold text-[#525317]">
+            <span>Explore Belonging & Circle Selection</span>
+            <svg class="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Week 4 Callout Banner -->
+      <div class="mt-10 bg-white rounded-3xl p-6 border border-tokotoko-sage/60 flex flex-col sm:flex-row items-center justify-between gap-5 tokotoko-shadow">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-tokotoko-secondary text-white flex items-center justify-center text-2xl flex-shrink-0">
+            🎣
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-tokotoko-espresso">Week 4 Focus: Roles, Being Present, Brotherhood & Whānau Fishing Day</h4>
+            <p class="text-xs text-tokotoko-espresso/70 mt-0.5">
+              Let your partner or child pick an activity, check in on a brother, and stand tall in your responsibilities.
+            </p>
+          </div>
+        </div>
+        <button onclick="switchTrackerWeek(4); navigateTo('tracker');" class="px-5 py-2.5 bg-tokotoko-secondary hover:bg-yellow-600 text-white text-xs font-bold rounded-xl transition shadow whitespace-nowrap">
+          Open Week 4 Habit Tracker
+        </button>
+      </div>
+
+    </section>
+
+    <!-- VIEW: Relationships Option 1 (Roles and Responsibilities) -->
+    <section id="view-relationships-option1" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
+        
+        <div class="flex items-center justify-between mb-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tokotoko-primary/15 text-tokotoko-primary text-xs font-bold uppercase tracking-wider">
+            <span>🛡️</span> Relationship Pathway 1: Roles & Responsibilities
+          </span>
+          <button onclick="navigateTo('relationships-selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
+            ← Change Relationships Pathway
+          </button>
+        </div>
+
+        <div class="max-w-3xl mb-6">
+          <div class="w-14 h-14 rounded-2xl bg-tokotoko-primary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">
+            🛶
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+            Roles & Responsibilities: Anchoring Your Whānau
+          </h2>
+          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
+            In our Māori and Pacific cultures, as in all healthy communities, a man's role isn't about dominance—it is about shelter, service, moral courage, and providing an emotional and physical anchor for the whānau. When you embrace your responsibilities realistically, pride replaces guilt.
+          </p>
+        </div>
+
+        <!-- Featured Media Card (The Danger of a Single Story / Wisdom Video) -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-tokotoko-sage/60 mb-8 tokotoko-shadow">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="max-w-xl">
+              <span class="inline-block px-2.5 py-0.5 rounded bg-tokotoko-primary/10 text-tokotoko-primary text-[11px] font-bold uppercase tracking-wider mb-2">
+                Featured Watch & Reflection
+              </span>
+              <h3 class="text-xl font-bold text-tokotoko-espresso">Understanding Our Stories & The People in Our Care</h3>
+              <p class="text-xs sm:text-sm text-tokotoko-espresso/70 mt-2 leading-relaxed">
+                Watch this powerful perspective on understanding the human beings around you beyond surface-level assumptions. How we view our loved ones defines how faithfully we serve and protect them.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="https://www.youtube.com/watch?v=sHMWDi14jwk" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="px-5 py-3 bg-red-700 hover:bg-red-800 text-white font-bold text-xs rounded-xl transition shadow flex items-center justify-center gap-2 whitespace-nowrap">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                <span>Watch Video on YouTube</span>
+              </a>
+              <button onclick="copyToClipboard('https://www.youtube.com/watch?v=sHMWDi14jwk')" class="px-4 py-3 bg-[#F2EFE9] hover:bg-tokotoko-sage/30 text-tokotoko-espresso text-xs font-bold rounded-xl transition border border-tokotoko-sage">
+                Copy Link
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Core Tools for Living Up to Roles Realistically -->
+        <div class="mb-8">
+          <h4 class="text-base font-extrabold text-tokotoko-espresso mb-4 flex items-center gap-2">
+            <span>⚙️</span> Tools to Strengthen & Position Yourself for Your Roles
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <span class="w-8 h-8 rounded-lg bg-tokotoko-primary/10 text-tokotoko-primary flex items-center justify-center font-bold text-xs mb-2">TOOL 1</span>
+              <h5 class="text-sm font-bold text-tokotoko-espresso">Role Clarification Check</h5>
+              <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+                Sit down and write what your partner, kids, or parents truly need from you right now. Often it is not money; it is your calm presence, dependability, and safety.
+              </p>
+            </div>
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <span class="w-8 h-8 rounded-lg bg-tokotoko-primary/10 text-tokotoko-primary flex items-center justify-center font-bold text-xs mb-2">TOOL 2</span>
+              <h5 class="text-sm font-bold text-tokotoko-espresso">The Capacity Filter</h5>
+              <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+                Do not make promises you cannot keep. Living up to your role means saying "yes" to 2 core commitments you will never fail, rather than promising 10 and dropping 8.
+              </p>
+            </div>
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <span class="w-8 h-8 rounded-lg bg-tokotoko-primary/10 text-tokotoko-primary flex items-center justify-center font-bold text-xs mb-2">TOOL 3</span>
+              <h5 class="text-sm font-bold text-tokotoko-espresso">Whānau Check-in Talanoa</h5>
+              <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+                A simple weekly 15-minute conversation with your household: "How are we doing as a team? What do you need from me this week?"
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Practical Ways to Apply This Knowledge -->
+        <div class="bg-[#F0ECE1] rounded-2xl p-6 border border-tokotoko-sage/60 mb-6">
+          <h4 class="text-sm font-extrabold text-tokotoko-espresso uppercase tracking-wider mb-2">
+            Practical Application This Week:
+          </h4>
+          <ul class="space-y-2 text-xs text-tokotoko-espresso/85 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-tokotoko-primary font-bold">✓</span>
+              <span><strong>Own One Household Burden:</strong> Pick one responsibility (school drop-off, dinner prep, taking the rubbish or finances) and execute it 100% without needing to be asked or thanked.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-tokotoko-primary font-bold">✓</span>
+              <span><strong>Be the Tone Setter:</strong> Notice when tension enters your home. Rather than reacting or shouting, take a breath, drop your shoulders, and speak with calm authority.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-tokotoko-primary font-bold">✓</span>
+              <span><strong>Community Service Stance:</strong> Offer an hour to your marae, your local sports club, or elderly neighbor to reinforce your role as an active protector in your rohe.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+          <p class="text-xs text-tokotoko-espresso font-semibold">Ready to record today's habit check-in for Week 4?</p>
+          <button onclick="switchTrackerWeek(4); navigateTo('tracker');" class="px-5 py-2.5 bg-tokotoko-primary text-white text-xs font-bold rounded-xl hover:bg-tokotoko-primaryDark transition shadow">
+            Open Week 4 Habit Tracker
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VIEW: Relationships Option 2 (Being Present) -->
+    <section id="view-relationships-option2" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
+        
+        <div class="flex items-center justify-between mb-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tokotoko-secondary/20 text-[#635b00] text-xs font-bold uppercase tracking-wider">
+            <span>👁️</span> Relationship Pathway 2: Being Present
+          </span>
+          <button onclick="navigateTo('relationships-selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
+            ← Change Relationships Pathway
+          </button>
+        </div>
+
+        <div class="max-w-3xl mb-6">
+          <div class="w-14 h-14 rounded-2xl bg-tokotoko-secondary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">
+            ❤️
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+            Your Attention & Affection: The Greatest Gift
+          </h2>
+          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
+            You can be sitting in the same lounge with your partner and kids, yet be a million miles away in your head or scrolling on your phone. To a child or a partner, attention equals love. Being truly present means giving your eyes, ears, and emotional focus fully to them.
+          </p>
+        </div>
+
+        <!-- What Being Present Looks Like -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-tokotoko-sage/60 mb-8 tokotoko-shadow">
+          <h3 class="text-lg font-bold text-tokotoko-espresso mb-3">What Real Presence Looks Like in Everyday Life</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs text-tokotoko-espresso/80 leading-relaxed">
+            <div class="p-4 rounded-xl bg-red-50/60 border border-red-200">
+              <span class="text-red-700 font-bold block mb-1">❌ Distracted "Half-Present" Man:</span>
+              <p>Staring at the screen while answering with "uh-huh", quick to lose patience, body in the room but thoughts stressed about yesterday or tomorrow.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-emerald-50/60 border border-emerald-200">
+              <span class="text-emerald-800 font-bold block mb-1">✅ Anchored "Fully-Present" Man:</span>
+              <p>Phone placed face down in another room. Eye contact made when speaking. Kneeling down to child's eye level. Listening without rushing to fix or defend.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Suggested Tools for Being Present -->
+        <div class="mb-8">
+          <h4 class="text-base font-extrabold text-tokotoko-espresso mb-4 flex items-center gap-2">
+            <span>🧰</span> Tools to Help You Stay Grounded & Present
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <span class="w-8 h-8 rounded-lg bg-tokotoko-secondary/20 text-[#635b00] flex items-center justify-center font-bold text-xs mb-2">TOOL 1</span>
+              <h5 class="text-sm font-bold text-tokotoko-espresso">The 3-Second Threshold Reset</h5>
+              <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+                Before you open the front door when you return home, pause outside for 3 seconds. Take a deep breath, leave the workday or worries outside, and walk in ready to embrace your whānau.
+              </p>
+            </div>
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <span class="w-8 h-8 rounded-lg bg-tokotoko-secondary/20 text-[#635b00] flex items-center justify-center font-bold text-xs mb-2">TOOL 2</span>
+              <h5 class="text-sm font-bold text-tokotoko-espresso">The Device Basket</h5>
+              <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+                Put your phone into a designated box or basket for the first 60 minutes after you arrive home or during dinner. Physical barriers prevent unconscious checking.
+              </p>
+            </div>
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <span class="w-8 h-8 rounded-lg bg-tokotoko-secondary/20 text-[#635b00] flex items-center justify-center font-bold text-xs mb-2">TOOL 3</span>
+              <h5 class="text-sm font-bold text-tokotoko-espresso">Child-Led Play / Partner Date</h5>
+              <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+                Surrender the agenda: let your tamariki or partner pick an activity without negotiating or changing it, and join in with wholehearted enthusiasm.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Practical Ways to Apply -->
+        <div class="bg-[#F0ECE1] rounded-2xl p-6 border border-tokotoko-sage/60 mb-6">
+          <h4 class="text-sm font-extrabold text-tokotoko-espresso uppercase tracking-wider mb-2">
+            Practical Application This Week:
+          </h4>
+          <ul class="space-y-2 text-xs text-tokotoko-espresso/85 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-tokotoko-secondary font-bold">✓</span>
+              <span><strong>The Week 4 Pillar Challenge:</strong> Ask your partner or child: <em>"What would you like the two of us to do together today?"</em> and do it completely uninterrupted.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-tokotoko-secondary font-bold">✓</span>
+              <span><strong>20-Second Hug:</strong> Give your partner or children a warm, genuine 20-second hug. Neuroscience shows this floods the nervous system with oxytocin and restores felt security.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-tokotoko-secondary font-bold">✓</span>
+              <span><strong>Eye-Contact Check:</strong> Practice looking directly into the eyes of whānau members when they speak, acknowledging their words before responding.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+          <p class="text-xs text-tokotoko-espresso font-semibold">Tracked your presence activity in your daily log?</p>
+          <button onclick="switchTrackerWeek(4); navigateTo('tracker');" class="px-5 py-2.5 bg-tokotoko-secondary hover:bg-yellow-600 text-white text-xs font-bold rounded-xl transition shadow">
+            Open Week 4 Tracker
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VIEW: Relationships Option 3 (Belonging & Brotherhood) -->
+    <section id="view-relationships-option3" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
+        
+        <div class="flex items-center justify-between mb-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
+            <span>🛡️</span> Relationship Pathway 3: Belonging & Brotherhood
+          </span>
+          <button onclick="navigateTo('relationships-selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
+            ← Change Relationships Pathway
+          </button>
+        </div>
+
+        <div class="max-w-3xl mb-6">
+          <div class="w-14 h-14 rounded-2xl bg-[#525317] text-white flex items-center justify-center text-2xl mb-4 shadow-sm">
+            👥
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+            Belonging: Building Your Brotherhood
+          </h2>
+          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
+            <em>"Show me your friends, and I will show you your future."</em> An isolated man is vulnerable to old habits, depression, and frustration. When you surround yourself with men who hold high standards, tell you the truth, and lift you up, you build an unbreakable vaka.
+          </p>
+        </div>
+
+        <!-- The Power of Your Inner Circle -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-tokotoko-sage/60 mb-8 tokotoko-shadow">
+          <h3 class="text-lg font-bold text-tokotoko-espresso mb-2">The Two Types of Circles: Which Are You Feeding?</h3>
+          <p class="text-xs text-tokotoko-espresso/70 mb-5">Making conscious decisions about your peer group is not about abandoning people—it is about choosing who earns access to influence your life.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs text-tokotoko-espresso/80 leading-relaxed">
+            <div class="p-4 rounded-xl bg-amber-50/60 border border-amber-200">
+              <span class="text-amber-900 font-bold block mb-1">⚠️ The Convenient Drinking / Complaining Circle:</span>
+              <p>Bonded over excuses, substance use, criticising others, or keeping you comfortable in unemployment and low motivation. Pulls you backward.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-[#F0ECE1] border border-tokotoko-sage/80">
+              <span class="text-tokotoko-espresso font-bold block mb-1">🌿 The Tokotoko Brotherhood:</span>
+              <p>Bonded over physical vitality, whānau commitment, honest talanoa, career goals, and healthy accountability. Pulls you upward into your best self.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Suggested Tools for Brotherhood & Belonging -->
+        <div class="mb-8">
+          <h4 class="text-base font-extrabold text-tokotoko-espresso mb-4 flex items-center gap-2">
+            <span>⚓</span> Tools to Build & Protect Your Sense of Belonging
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <span class="w-8 h-8 rounded-lg bg-[#525317]/15 text-[#525317] flex items-center justify-center font-bold text-xs mb-2">TOOL 1</span>
+              <h5 class="text-sm font-bold text-tokotoko-espresso">The 5-Brother Audit</h5>
+              <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+                Take an honest look at the five people you talk with most. Are they working, exercising, speaking life into their families, or are they dragging you down?
+              </p>
+            </div>
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <span class="w-8 h-8 rounded-lg bg-[#525317]/15 text-[#525317] flex items-center justify-center font-bold text-xs mb-2">TOOL 2</span>
+              <h5 class="text-sm font-bold text-tokotoko-espresso">The Low-Pressure Check-in Call</h5>
+              <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+                You don't need a crisis to reach out. A 60-second message: <em>"Thinking of you bro, hope you and the whānau are good"</em> strengthens brotherhood immovably.
+              </p>
+            </div>
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <span class="w-8 h-8 rounded-lg bg-[#525317]/15 text-[#525317] flex items-center justify-center font-bold text-xs mb-2">TOOL 3</span>
+              <h5 class="text-sm font-bold text-tokotoko-espresso">Shared Shoulder-to-Shoulder Mahi</h5>
+              <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+                Men talk best when looking at the same task rather than looking at each other. Fishing, moving timber, fitness, and our Friday walking group build natural connection.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Practical Ways to Apply This Knowledge -->
+        <div class="bg-[#F0ECE1] rounded-2xl p-6 border border-tokotoko-sage/60 mb-6">
+          <h4 class="text-sm font-extrabold text-tokotoko-espresso uppercase tracking-wider mb-2">
+            Practical Application This Week:
+          </h4>
+          <ul class="space-y-2 text-xs text-tokotoko-espresso/85 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-tokotoko-primary font-bold">✓</span>
+              <span><strong>Building My Brotherhood Log:</strong> Reach out to one brother from the Tokotoko group or an old, trustworthy friend this week and check in on how he is tracking.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-tokotoko-primary font-bold">✓</span>
+              <span><strong>Participate in Friday Connection:</strong> Show up for our walking group or our upcoming Fishing Day activity—experience brotherhood in motion.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-tokotoko-primary font-bold">✓</span>
+              <span><strong>Set a Gentle Boundary:</strong> Say "no thanks" to a gathering or person that regularly tempts you into old vices or unproductive drama.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+          <p class="text-xs text-tokotoko-espresso font-semibold">Ready to record today's brotherhood connection?</p>
+          <button onclick="switchTrackerWeek(4); navigateTo('tracker');" class="px-5 py-2.5 bg-tokotoko-primary text-white text-xs font-bold rounded-xl hover:bg-tokotoko-primaryDark transition shadow">
+            Open Week 4 Tracker
+          </button>
+        </div>
+
+      </div>
     </section>
 
     <!-- VIEW: Spiritual Pathway 1 (Broxh - Self) -->
@@ -1178,7 +1640,7 @@
       </div>
     </section>
 
-    <!-- VIEW: Mental Pathway 2 (Nga Manga Puriri) -->
+    <!-- VIEW: Mental Pathway 2 (Northland Mens Project) -->
     <section id="view-mental-option2" class="hidden relative z-10 transition-opacity duration-300">
       <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
         
@@ -1196,10 +1658,10 @@
             🛠️
           </div>
           <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
-            Nga Manga Puriri (NMP)
+            Northland Men's Project (NMP)
           </h2>
           <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
-            If sitting in a traditional clinical counselling room doesn't feel right for you, the Nga Manga Puriri offers practical, relational, and action-oriented alternatives for men working through life transitions and tough times.
+            If sitting in a traditional clinical counselling room doesn't feel right for you, the Northland Men's Project offers practical, relational, and action-oriented alternatives for men working through life transitions and tough times.
           </p>
         </div>
 
@@ -1207,9 +1669,9 @@
           <div class="flex flex-col md:flex-row md:items-center justify-between gap-5">
             <div>
               <div class="inline-block px-2.5 py-0.5 rounded bg-tokotoko-secondary/20 text-tokotoko-espresso text-[11px] font-bold uppercase tracking-wide mb-2">
-                Nga Manga Puriri
+                Official NMP Portal
               </div>
-              <h3 class="text-lg font-bold text-tokotoko-espresso">Nga Manga Puriri Website</h3>
+              <h3 class="text-lg font-bold text-tokotoko-espresso">Northland Men's Project Website</h3>
               <p class="text-xs text-tokotoko-espresso/70 mt-1 max-w-xl">
                 Practical courses, peer connections, and non-traditional support spaces across Te Tai Tokerau designed to empower men to thrive.
               </p>
@@ -1326,7 +1788,7 @@
       </div>
     </section>
 
-    <!-- VIEW 4: Dedicated Daily Habit Tracker & Progress Screen (Supports Week 1, 2 & 3) -->
+    <!-- VIEW 4: Dedicated Daily Habit Tracker & Progress Screen (Supports Weeks 1 - 4) -->
     <section id="view-tracker" class="hidden relative z-10 transition-opacity duration-300">
       <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
         
@@ -1357,16 +1819,19 @@
           </div>
         </div>
 
-        <!-- Week 1 vs Week 2 vs Week 3 Tracker Switcher Tabs -->
-        <div class="flex bg-[#EBE7DF] p-1.5 rounded-2xl mb-6 border border-tokotoko-sage/50 max-w-lg">
-          <button onclick="switchTrackerWeek(1)" id="tabTrackerWeek1" class="flex-1 py-2 text-xs font-bold rounded-xl transition bg-white text-tokotoko-espresso shadow-sm flex items-center justify-center gap-1">
+        <!-- Week 1 vs Week 2 vs Week 3 vs Week 4 Tracker Switcher Tabs -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5 bg-[#EBE7DF] p-1.5 rounded-2xl mb-6 border border-tokotoko-sage/50 max-w-2xl">
+          <button onclick="switchTrackerWeek(1)" id="tabTrackerWeek1" class="py-2 text-xs font-bold rounded-xl transition bg-white text-tokotoko-espresso shadow-sm flex items-center justify-center gap-1">
             <span>🌿</span> Wk 1 Physical
           </button>
-          <button onclick="switchTrackerWeek(2)" id="tabTrackerWeek2" class="flex-1 py-2 text-xs font-bold rounded-xl transition text-tokotoko-espresso/70 hover:text-tokotoko-espresso flex items-center justify-center gap-1">
+          <button onclick="switchTrackerWeek(2)" id="tabTrackerWeek2" class="py-2 text-xs font-bold rounded-xl transition text-tokotoko-espresso/70 hover:text-tokotoko-espresso flex items-center justify-center gap-1">
             <span id="tabTrackerWeek2Lock">🔒</span> Wk 2 Mental
           </button>
-          <button onclick="switchTrackerWeek(3)" id="tabTrackerWeek3" class="flex-1 py-2 text-xs font-bold rounded-xl transition text-tokotoko-espresso/70 hover:text-tokotoko-espresso flex items-center justify-center gap-1">
+          <button onclick="switchTrackerWeek(3)" id="tabTrackerWeek3" class="py-2 text-xs font-bold rounded-xl transition text-tokotoko-espresso/70 hover:text-tokotoko-espresso flex items-center justify-center gap-1">
             <span id="tabTrackerWeek3Lock">🔒</span> Wk 3 Spiritual
+          </button>
+          <button onclick="switchTrackerWeek(4)" id="tabTrackerWeek4" class="py-2 text-xs font-bold rounded-xl transition text-tokotoko-espresso/70 hover:text-tokotoko-espresso flex items-center justify-center gap-1">
+            <span id="tabTrackerWeek4Lock">🔒</span> Wk 4 Relate
           </button>
         </div>
 
@@ -1387,13 +1852,13 @@
 
             <!-- Dynamic 5 Habit Checklist Items Container -->
             <div id="habitChecklistContainer" class="space-y-3">
-              <!-- Dynamically populated based on activeTrackerWeek (1, 2, or 3) -->
+              <!-- Dynamically populated based on activeTrackerWeek (1, 2, 3, or 4) -->
             </div>
 
             <!-- Notes Field -->
             <div>
               <label class="block text-xs font-bold text-tokotoko-espresso mb-1" id="notesLabel">Daily Reflection / Victory Notes</label>
-              <textarea id="habitNotes" rows="2" placeholder="e.g. Worked on my project, feeling focused and clear." class="w-full bg-white border border-tokotoko-sage rounded-2xl p-3 text-xs text-tokotoko-espresso outline-none focus:ring-2 focus:ring-tokotoko-primary"></textarea>
+              <textarea id="habitNotes" rows="2" placeholder="e.g. Spent focused time with my whānau, feeling connected and calm." class="w-full bg-white border border-tokotoko-sage rounded-2xl p-3 text-xs text-tokotoko-espresso outline-none focus:ring-2 focus:ring-tokotoko-primary"></textarea>
             </div>
 
             <!-- Save CTA -->
@@ -1423,14 +1888,17 @@
                 <span class="text-[10px] font-black uppercase text-tokotoko-secondary block">Module Progression</span>
                 <p class="text-xs font-bold text-tokotoko-espresso mt-0.5" id="sidebarProgressHeading">Phase 1 Pathway Voyage</p>
                 <p class="text-[11px] text-tokotoko-espresso/70 mt-1" id="sidebarProgressDesc">
-                  5 logs unlock Week 2 (Mental). 10 logs unlock Week 3 (Spiritual).
+                  5 logs = Wk 2 (Mental) • 10 logs = Wk 3 (Spiritual) • 15 logs = Wk 4 (Relationships)
                 </p>
-                <div class="grid grid-cols-2 gap-1.5 mt-2.5">
-                  <button onclick="navigateTo('mental-selector')" class="w-full py-1.5 bg-tokotoko-sage/30 hover:bg-tokotoko-sage/50 text-tokotoko-espresso text-[11px] font-bold rounded-lg transition text-center">
-                    Week 2 →
+                <div class="grid grid-cols-3 gap-1.5 mt-2.5">
+                  <button onclick="navigateTo('mental-selector')" class="w-full py-1.5 bg-tokotoko-sage/30 hover:bg-tokotoko-sage/50 text-tokotoko-espresso text-[10px] font-bold rounded-lg transition text-center">
+                    Wk 2 →
                   </button>
-                  <button onclick="navigateTo('spiritual-selector')" class="w-full py-1.5 bg-tokotoko-primary/20 hover:bg-tokotoko-primary/30 text-tokotoko-primary text-[11px] font-bold rounded-lg transition text-center">
-                    Week 3 →
+                  <button onclick="navigateTo('spiritual-selector')" class="w-full py-1.5 bg-tokotoko-primary/20 hover:bg-tokotoko-primary/30 text-tokotoko-primary text-[10px] font-bold rounded-lg transition text-center">
+                    Wk 3 →
+                  </button>
+                  <button onclick="navigateTo('relationships-selector')" class="w-full py-1.5 bg-tokotoko-secondary/20 hover:bg-tokotoko-secondary/30 text-[#635b00] text-[10px] font-bold rounded-lg transition text-center">
+                    Wk 4 →
                   </button>
                 </div>
               </div>
@@ -1480,10 +1948,14 @@
       'spiritual-option1': document.getElementById('view-spiritual-option1'),
       'spiritual-option2': document.getElementById('view-spiritual-option2'),
       'spiritual-option3': document.getElementById('view-spiritual-option3'),
+      'relationships-selector': document.getElementById('view-relationships-selector'),
+      'relationships-option1': document.getElementById('view-relationships-option1'),
+      'relationships-option2': document.getElementById('view-relationships-option2'),
+      'relationships-option3': document.getElementById('view-relationships-option3'),
     };
     const navBackBtn = document.getElementById('navBackBtn');
 
-    // Current active authenticated session user & active tracker week (1, 2, or 3)
+    // Current active authenticated session user & active tracker week (1, 2, 3, or 4)
     let currentUser = null;
     let authMode = 'signin';
     let activeTrackerWeek = 1;
@@ -1524,8 +1996,18 @@
       { id: 'checkin', title: '5. Check-In', desc: 'Posted in our online community or completed our weekly check-in form.' }
     ];
 
+    // Week 4 Pillars definition (Relationships & Brotherhood)
+    const WEEK4_PILLARS = [
+      { id: 'being_present', title: '1. Being Present', desc: 'This week my partner or child chose an activity for us to do together.' },
+      { id: 'building_brotherhood', title: '2. Building my Brotherhood', desc: 'I reached out to one of my brothers this week.' },
+      { id: 'rest', title: '3. Quality Rest and Recovery (7-8 hours)', desc: 'Winding down early, putting phones away before sleep, recovering energy.' },
+      { id: 'hometask', title: '4. At-Home Task', desc: 'Encouraged one other person or completed the 5-minute listening challenge.' },
+      { id: 'checkin', title: '5. Check-In', desc: 'Posted in our online community or completed our weekly check-in form.' }
+    ];
+
     const UNLOCK_THRESHOLD_W2 = 5;  // 5 logged check-ins required to unlock Week 2
     const UNLOCK_THRESHOLD_W3 = 10; // 10 logged check-ins required to unlock Week 3
+    const UNLOCK_THRESHOLD_W4 = 15; // 15 logged check-ins required to unlock Week 4
 
     function getTodayString() {
       const now = new Date();
@@ -1637,7 +2119,7 @@
         const m = String(d.getMonth() + 1).padStart(2, '0');
         const dayStr = String(d.getDate()).padStart(2, '0');
         const dateKey = `${y}-${m}-${dayStr}`;
-        const logWeek = i >= 5 ? (i >= 9 ? 3 : 2) : 1;
+        const logWeek = i >= 14 ? 4 : (i >= 9 ? 3 : (i >= 4 ? 2 : 1));
         userDatabase[email].logs[dateKey] = {
           week: logWeek,
           movement: true,
@@ -1652,6 +2134,8 @@
           checkin: true,
           self: true,
           others: true,
+          being_present: true,
+          building_brotherhood: true,
           notes: `Day ${i + 1} progress check-in logged.`,
           savedAt: d.toISOString()
         };
@@ -1672,6 +2156,12 @@
       return Object.keys(logs).length >= UNLOCK_THRESHOLD_W3;
     }
 
+    function isWeek4Unlocked() {
+      if (!currentUser) return false;
+      const logs = userDatabase[currentUser.email]?.logs || {};
+      return Object.keys(logs).length >= UNLOCK_THRESHOLD_W4;
+    }
+
     function updateUnlockStatus() {
       if (!currentUser) return;
       const logs = userDatabase[currentUser.email]?.logs || {};
@@ -1682,6 +2172,8 @@
       const navBadgeW2 = document.getElementById('week2NavBadge');
       const navLockIconW3 = document.getElementById('navLockIconW3');
       const navBadgeW3 = document.getElementById('week3NavBadge');
+      const navLockIconW4 = document.getElementById('navLockIconW4');
+      const navBadgeW4 = document.getElementById('week4NavBadge');
 
       const trackerTarget = document.getElementById('totalCheckins');
       const trackerTargetLabel = document.getElementById('trackerTargetLabel');
@@ -1699,7 +2191,13 @@
       const spiritualProgressText = document.getElementById('spiritualGateProgressText');
       const tabWeek3Lock = document.getElementById('tabTrackerWeek3Lock');
 
-      // Update counters
+      // Week 4 gate
+      const relationshipsGateBanner = document.getElementById('relationshipsLockedHeaderBanner');
+      const relationshipsProgressBar = document.getElementById('relationshipsGateProgressBar');
+      const relationshipsProgressText = document.getElementById('relationshipsGateProgressText');
+      const tabWeek4Lock = document.getElementById('tabTrackerWeek4Lock');
+
+      // Update counters based on lowest locked week
       if (count < UNLOCK_THRESHOLD_W2) {
         if (trackerTarget) trackerTarget.textContent = `${count} / ${UNLOCK_THRESHOLD_W2}`;
         if (trackerTargetLabel) trackerTargetLabel.textContent = 'Week 2 Target';
@@ -1708,10 +2206,14 @@
         if (trackerTarget) trackerTarget.textContent = `${count} / ${UNLOCK_THRESHOLD_W3}`;
         if (trackerTargetLabel) trackerTargetLabel.textContent = 'Week 3 Target';
         if (trackerLabel) trackerLabel.textContent = 'to unlock Wk 3';
+      } else if (count < UNLOCK_THRESHOLD_W4) {
+        if (trackerTarget) trackerTarget.textContent = `${count} / ${UNLOCK_THRESHOLD_W4}`;
+        if (trackerTargetLabel) trackerTargetLabel.textContent = 'Week 4 Target';
+        if (trackerLabel) trackerLabel.textContent = 'to unlock Wk 4';
       } else {
         if (trackerTarget) trackerTarget.textContent = `${count}`;
         if (trackerTargetLabel) trackerTargetLabel.textContent = 'Voyage Logs';
-        if (trackerLabel) trackerLabel.textContent = 'Wk 2 & 3 Unlocked! 🎉';
+        if (trackerLabel) trackerLabel.textContent = 'All Phase 1 Unlocked! 🎉';
       }
 
       // Week 2 UI state
@@ -1759,6 +2261,29 @@
           navBadgeW3.classList.remove('border-emerald-400/60', 'bg-emerald-400/20', 'text-emerald-200');
         }
       }
+
+      // Week 4 UI state
+      const pctW4 = Math.min(100, Math.round((count / UNLOCK_THRESHOLD_W4) * 100));
+      if (relationshipsProgressBar) relationshipsProgressBar.style.width = pctW4 + '%';
+      if (relationshipsProgressText) relationshipsProgressText.textContent = `${count} / ${UNLOCK_THRESHOLD_W4} check-ins completed`;
+
+      if (count >= UNLOCK_THRESHOLD_W4) {
+        if (relationshipsGateBanner) relationshipsGateBanner.classList.add('hidden');
+        if (navLockIconW4) navLockIconW4.textContent = '🔓';
+        if (tabWeek4Lock) tabWeek4Lock.textContent = '🔓';
+        if (navBadgeW4) {
+          navBadgeW4.classList.remove('border-yellow-400/40', 'bg-yellow-400/10', 'text-yellow-200');
+          navBadgeW4.classList.add('border-emerald-400/60', 'bg-emerald-400/20', 'text-emerald-200');
+        }
+      } else {
+        if (relationshipsGateBanner) relationshipsGateBanner.classList.remove('hidden');
+        if (navLockIconW4) navLockIconW4.textContent = '🔒';
+        if (tabWeek4Lock) tabWeek4Lock.textContent = '🔒';
+        if (navBadgeW4) {
+          navBadgeW4.classList.add('border-yellow-400/40', 'bg-yellow-400/10', 'text-yellow-200');
+          navBadgeW4.classList.remove('border-emerald-400/60', 'bg-emerald-400/20', 'text-emerald-200');
+        }
+      }
     }
 
     function handleTargetBadgeClick() {
@@ -1766,8 +2291,10 @@
         navigateTo('mental-selector');
       } else if (!isWeek3Unlocked()) {
         navigateTo('spiritual-selector');
+      } else if (!isWeek4Unlocked()) {
+        navigateTo('relationships-selector');
       } else {
-        navigateTo('spiritual-selector');
+        navigateTo('relationships-selector');
       }
     }
 
@@ -1792,42 +2319,57 @@
       else if (number === 3) navigateTo('spiritual-option3');
     }
 
-    // Switch tracker between Week 1, Week 2, and Week 3
+    // Relationships Pathway selection (Week 4)
+    function selectRelationshipsPathway(number) {
+      if (number === 1) navigateTo('relationships-option1');
+      else if (number === 2) navigateTo('relationships-option2');
+      else if (number === 3) navigateTo('relationships-option3');
+    }
+
+    // Switch tracker between Week 1, Week 2, Week 3, and Week 4
     function switchTrackerWeek(weekNumber) {
       if (weekNumber === 2 && !isWeek2Unlocked()) {
         showToast('5 logs unlock Week 2. Previewing now...', false);
       } else if (weekNumber === 3 && !isWeek3Unlocked()) {
         showToast('10 logs unlock Week 3. Previewing now...', false);
+      } else if (weekNumber === 4 && !isWeek4Unlocked()) {
+        showToast('15 logs unlock Week 4. Previewing now...', false);
       }
 
       activeTrackerWeek = weekNumber;
       const tab1 = document.getElementById('tabTrackerWeek1');
       const tab2 = document.getElementById('tabTrackerWeek2');
       const tab3 = document.getElementById('tabTrackerWeek3');
+      const tab4 = document.getElementById('tabTrackerWeek4');
       const pill = document.getElementById('trackerPillText');
       const title = document.getElementById('trackerMainTitle');
       const sub = document.getElementById('trackerSubTitle');
 
       // Reset styles
-      [tab1, tab2, tab3].forEach(t => {
-        t.className = 'flex-1 py-2 text-xs font-bold rounded-xl transition text-tokotoko-espresso/70 hover:text-tokotoko-espresso flex items-center justify-center gap-1';
+      [tab1, tab2, tab3, tab4].forEach(t => {
+        if (t) t.className = 'py-2 text-xs font-bold rounded-xl transition text-tokotoko-espresso/70 hover:text-tokotoko-espresso flex items-center justify-center gap-1';
       });
 
       if (weekNumber === 1) {
-        tab1.className = 'flex-1 py-2 text-xs font-bold rounded-xl transition bg-white text-tokotoko-espresso shadow-sm flex items-center justify-center gap-1';
+        if (tab1) tab1.className = 'py-2 text-xs font-bold rounded-xl transition bg-white text-tokotoko-espresso shadow-sm flex items-center justify-center gap-1';
         pill.textContent = 'Daily Discipline • Week 1 Physical (Te Hoe)';
         title.textContent = 'Week 1 Physical Habit Tracker';
         sub.textContent = 'Log movement, nourishing kai, quality sleep, whānau time, and positive self-talk.';
       } else if (weekNumber === 2) {
-        tab2.className = 'flex-1 py-2 text-xs font-bold rounded-xl transition bg-white text-tokotoko-espresso shadow-sm flex items-center justify-center gap-1';
+        if (tab2) tab2.className = 'py-2 text-xs font-bold rounded-xl transition bg-white text-tokotoko-espresso shadow-sm flex items-center justify-center gap-1';
         pill.textContent = 'Mental Discipline • Week 2 (Te Hoe)';
         title.textContent = 'Week 2 Mental Habit Tracker';
         sub.textContent = 'Log positive words, reflection, quality rest, at-home challenge, and check-in.';
       } else if (weekNumber === 3) {
-        tab3.className = 'flex-1 py-2 text-xs font-bold rounded-xl transition bg-white text-tokotoko-espresso shadow-sm flex items-center justify-center gap-1';
+        if (tab3) tab3.className = 'py-2 text-xs font-bold rounded-xl transition bg-white text-tokotoko-espresso shadow-sm flex items-center justify-center gap-1';
         pill.textContent = 'Spiritual Discipline • Week 3 (Te Hoe)';
         title.textContent = 'Week 3 Spiritual Habit Tracker';
         sub.textContent = 'Log self-learning/passions, serving others, recovery, and weekly check-in.';
+      } else if (weekNumber === 4) {
+        if (tab4) tab4.className = 'py-2 text-xs font-bold rounded-xl transition bg-white text-tokotoko-espresso shadow-sm flex items-center justify-center gap-1';
+        pill.textContent = 'Relational Discipline • Week 4 (Te Hoe)';
+        title.textContent = 'Week 4 Relationships Habit Tracker';
+        sub.textContent = 'Log presence with whānau, brotherhood outreach, quality rest, and check-in.';
       }
 
       renderPillarsChecklist();
@@ -1838,7 +2380,8 @@
     function getPillarsForWeek(wk) {
       if (wk === 1) return WEEK1_PILLARS;
       if (wk === 2) return WEEK2_PILLARS;
-      return WEEK3_PILLARS;
+      if (wk === 3) return WEEK3_PILLARS;
+      return WEEK4_PILLARS;
     }
 
     function renderPillarsChecklist() {
@@ -1871,7 +2414,7 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
 
-      if (['selector', 'auth', 'mental-selector', 'spiritual-selector'].includes(viewKey)) {
+      if (['selector', 'auth', 'mental-selector', 'spiritual-selector', 'relationships-selector'].includes(viewKey)) {
         navBackBtn.classList.add('hidden');
       } else {
         navBackBtn.classList.remove('hidden');
@@ -1879,7 +2422,7 @@
 
       if (viewKey === 'tracker') {
         renderHistoryAndMetrics();
-      } else if (viewKey === 'mental-selector' || viewKey === 'spiritual-selector') {
+      } else if (['mental-selector', 'spiritual-selector', 'relationships-selector'].includes(viewKey)) {
         updateUnlockStatus();
       }
     }
@@ -1961,6 +2504,8 @@
         showToast('🎉 Awesome mahi! You unlocked Week 2: Mental Wellbeing!');
       } else if (totalCount === UNLOCK_THRESHOLD_W3) {
         showToast('✨ Ka rawe! You unlocked Week 3: Spiritual Wellbeing!');
+      } else if (totalCount === UNLOCK_THRESHOLD_W4) {
+        showToast('🤝 Outstanding! You unlocked Week 4: Relationships & Brotherhood!');
       }
     }
 
