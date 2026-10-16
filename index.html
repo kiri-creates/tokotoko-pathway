@@ -241,7 +241,7 @@
 
           <button type="submit" id="authSubmitBtn" class="w-full py-3 bg-tokotoko-primary hover:bg-tokotoko-primaryDark text-white font-bold text-sm rounded-xl transition shadow-md flex items-center justify-center gap-2 mt-2">
             <span>Sign In to Vaka</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            <svg class="w-4 h-4 fill-none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </button>
         </form>
 
@@ -370,6 +370,225 @@
       </div>
     </section>
 
+    <!-- VIEW: Physical Option 1 (Rich Deep Dive) -->
+    <section id="view-option1" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
+        <div class="flex items-center justify-between mb-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tokotoko-primary/15 text-tokotoko-primary text-xs font-bold uppercase tracking-wider">
+            <span>💪</span> Pathway 1: Active & Whānau Focused
+          </span>
+          <button onclick="navigateTo('selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
+            ← Change Physical Pathway
+          </button>
+        </div>
+
+        <div class="max-w-3xl mb-6">
+          <div class="w-14 h-14 rounded-2xl bg-tokotoko-primary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">🌿</div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+            Ka Rawe! Outstanding Whānau Commitment
+          </h2>
+          <p class="mt-3 text-base sm:text-lg text-tokotoko-espresso/85 font-medium leading-relaxed">
+            Prioritizing your physical health is one of the greatest gifts you can offer your whānau. Regular movement builds stamina, reduces stress, and guarantees you have the vitality needed to stand tall as a present father, partner, and brother.
+          </p>
+        </div>
+
+        <!-- 3 Pillars of Habit Sustainability -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+            <span class="w-8 h-8 rounded-lg bg-tokotoko-primary/10 text-tokotoko-primary flex items-center justify-center font-bold text-xs mb-2">1</span>
+            <h4 class="text-sm font-bold text-tokotoko-espresso">Consistency Over Intensity</h4>
+            <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+              A 30-minute walk or bodyweight session done 5 days a week delivers far better longevity than burning out in one extreme workout.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+            <span class="w-8 h-8 rounded-lg bg-tokotoko-primary/10 text-tokotoko-primary flex items-center justify-center font-bold text-xs mb-2">2</span>
+            <h4 class="text-sm font-bold text-tokotoko-espresso">Nourish with Clean Kai</h4>
+            <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+              Fuel your muscles with whole foods, water, and regular sleep. Week 1 challenges our men to cook a wholesome, balanced meal for their household.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+            <span class="w-8 h-8 rounded-lg bg-tokotoko-primary/10 text-tokotoko-primary flex items-center justify-center font-bold text-xs mb-2">3</span>
+            <h4 class="text-sm font-bold text-tokotoko-espresso">Involve Your Whānau</h4>
+            <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+              Turn exercise into connection: kick a ball at the park, hike Mount Parihaka, or swim at the beach together on the weekend.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-[#F0ECE1] rounded-2xl p-6 border border-tokotoko-sage/60 mb-6">
+          <h4 class="text-sm font-extrabold text-tokotoko-espresso uppercase tracking-wider mb-2">Phase 1 • Week 1 Practical Tasks:</h4>
+          <ul class="space-y-2 text-xs text-tokotoko-espresso/85 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-tokotoko-primary font-bold">✓</span>
+              <span><strong>Cook For Your Whānau:</strong> Plan and prepare one wholesome meal this week for your household.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-tokotoko-primary font-bold">✓</span>
+              <span><strong>Friday Morning Walking Group:</strong> Connect with the Tokotoko brothers for our weekly group walk.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-tokotoko-primary font-bold">✓</span>
+              <span><strong>Maintain the Daily Check-in:</strong> Log your daily movement, water, kai, and sleep in the habit tracker.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+          <p class="text-xs text-tokotoko-espresso font-semibold">Ready to record today's physical movement?</p>
+          <button onclick="navigateTo('tracker')" class="px-5 py-2.5 bg-tokotoko-primary text-white text-xs font-bold rounded-xl hover:bg-tokotoko-primaryDark transition shadow">
+            Open Habit Tracker
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: Physical Option 2 (Exercise NZ Subsidised Gyms) -->
+    <section id="view-option2" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
+        <div class="flex items-center justify-between mb-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tokotoko-secondary/20 text-[#635b00] text-xs font-bold uppercase tracking-wider">
+            <span>🏋️</span> Pathway 2: Subsidised Gym Membership
+          </span>
+          <button onclick="navigateTo('selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
+            ← Change Physical Pathway
+          </button>
+        </div>
+
+        <div class="max-w-3xl mb-6">
+          <div class="w-14 h-14 rounded-2xl bg-tokotoko-secondary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">🏷️</div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+            Exercise NZ Subsidised Gym Access
+          </h2>
+          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
+            Exercise New Zealand collaborates with gyms, leisure centres, and fitness providers across Aotearoa to offer discounted and subsidised memberships for community members taking charge of their health.
+          </p>
+        </div>
+
+        <!-- Direct Portal Access Card -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-tokotoko-sage/60 mb-8 tokotoko-shadow">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="max-w-xl">
+              <span class="inline-block px-2.5 py-0.5 rounded bg-tokotoko-secondary/20 text-[#635b00] text-[11px] font-bold uppercase tracking-wider mb-2">Verified Resource</span>
+              <h3 class="text-xl font-bold text-tokotoko-espresso">Exercise NZ Subsidised Membership Map</h3>
+              <p class="text-xs sm:text-sm text-tokotoko-espresso/70 mt-2 leading-relaxed">
+                Use the interactive map to locate participating fitness facilities in Whangārei and greater Northland. Review their subsidy eligibility and register directly through the portal.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="https://www.exercise.org.nz/subsidised-gym-memberships-map/?gad_source=1&gad_campaignid=21068649576&gbraid=0AAAAADwIlbfzVwA5K1ebz03Wcc0MCjBkD&gclid=EAIaIQobChMInpugrva3lwMVIOEWBR2e7xl9EAAYASAAEgKzLPD_BwE" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="px-5 py-3 bg-tokotoko-secondary hover:bg-yellow-600 text-white font-bold text-xs rounded-xl transition shadow flex items-center justify-center gap-2 whitespace-nowrap">
+                <span>Open Subsidised Map</span>
+                <svg class="w-4 h-4 fill-none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+              <button onclick="copyToClipboard('https://www.exercise.org.nz/subsidised-gym-memberships-map/?gad_source=1&gad_campaignid=21068649576&gbraid=0AAAAADwIlbfzVwA5K1ebz03Wcc0MCjBkD&gclid=EAIaIQobChMInpugrva3lwMVIOEWBR2e7xl9EAAYASAAEgKzLPD_BwE')" class="px-4 py-3 bg-[#F2EFE9] hover:bg-tokotoko-sage/30 text-tokotoko-espresso text-xs font-bold rounded-xl transition border border-tokotoko-sage">
+                Copy Link
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Step Sign-up Guide -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+            <span class="w-8 h-8 rounded-lg bg-tokotoko-secondary/20 text-[#635b00] flex items-center justify-center font-bold text-xs mb-2">STEP 1</span>
+            <h5 class="text-sm font-bold text-tokotoko-espresso">Search Whangārei Area</h5>
+            <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+              Type your Northland suburb into the Exercise NZ map to view gyms with active subsidised rates.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+            <span class="w-8 h-8 rounded-lg bg-tokotoko-secondary/20 text-[#635b00] flex items-center justify-center font-bold text-xs mb-2">STEP 2</span>
+            <h5 class="text-sm font-bold text-tokotoko-espresso">Confirm Membership Tier</h5>
+            <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+              Select the option matching your schedule (off-peak, 24/7 access, or community centre rates).
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+            <span class="w-8 h-8 rounded-lg bg-tokotoko-secondary/20 text-[#635b00] flex items-center justify-center font-bold text-xs mb-2">STEP 3</span>
+            <h5 class="text-sm font-bold text-tokotoko-espresso">Bring a Tokotoko Brother</h5>
+            <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+              Pair up with another member of our group for training accountability and shared motivation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: Physical Option 3 (Sport Northland Green Prescription) -->
+    <section id="view-option3" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
+        <div class="flex items-center justify-between mb-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
+            <span>🌿</span> Pathway 3: Sport Northland Green Prescription (GRx)
+          </span>
+          <button onclick="navigateTo('selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
+            ← Change Physical Pathway
+          </button>
+        </div>
+
+        <div class="max-w-3xl mb-6">
+          <div class="w-14 h-14 rounded-2xl bg-tokotoko-primary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">🩺</div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+            Sport Northland Green Prescription (GRx)
+          </h2>
+          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
+            Green Prescription (GRx) is a free support service designed to help you and your whānau get active, eat healthier, and build sustainable wellbeing habits with the dedicated one-on-one guidance of a Healthy Lifestyle Advisor.
+          </p>
+        </div>
+
+        <!-- Sport Northland Direct Link Card -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-tokotoko-sage/60 mb-8 tokotoko-shadow">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="max-w-xl">
+              <span class="inline-block px-2.5 py-0.5 rounded bg-tokotoko-primary/10 text-tokotoko-primary text-[11px] font-bold uppercase tracking-wider mb-2">Community Partnership</span>
+              <h3 class="text-xl font-bold text-tokotoko-espresso">Sport Northland GRx Program</h3>
+              <p class="text-xs sm:text-sm text-tokotoko-espresso/70 mt-2 leading-relaxed">
+                Connect directly with Sport Northland to register or learn how your doctor/medical centre can provide a Green Prescription referral. Advisors tailor movement to your injuries, fitness level, and personal goals.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="https://www.sportnorthland.co.nz/nga-mahi-a-te-rehia-l-get-active/green-prescription-1" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="px-5 py-3 bg-tokotoko-primary hover:bg-tokotoko-primaryDark text-white font-bold text-xs rounded-xl transition shadow flex items-center justify-center gap-2 whitespace-nowrap">
+                <span>Visit Sport Northland GRx</span>
+                <svg class="w-4 h-4 fill-none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+              <button onclick="copyToClipboard('https://www.sportnorthland.co.nz/nga-mahi-a-te-rehia-l-get-active/green-prescription-1')" class="px-4 py-3 bg-[#F2EFE9] hover:bg-tokotoko-sage/30 text-tokotoko-espresso text-xs font-bold rounded-xl transition border border-tokotoko-sage">
+                Copy Link
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- GRx Program Benefits -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+            <h5 class="text-sm font-bold text-tokotoko-espresso mb-1">Personal Lifestyle Advisor</h5>
+            <p class="text-xs text-tokotoko-espresso/75 leading-relaxed">
+              Regular support calls or in-person check-ins in Whangārei to keep you motivated and safe.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+            <h5 class="text-sm font-bold text-tokotoko-espresso mb-1">Tailored Physical Activity</h5>
+            <p class="text-xs text-tokotoko-espresso/75 leading-relaxed">
+              Options that suit your situation: aquatic classes, low-impact walking groups, or gentle home routines.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+            <h5 class="text-sm font-bold text-tokotoko-espresso mb-1">Whānau Kai Education</h5>
+            <p class="text-xs text-tokotoko-espresso/75 leading-relaxed">
+              Simple, affordable nutritional guidance to keep your household healthy without high grocery bills.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- VIEW: Mental Wellbeing Selection Form (Week 2) -->
     <section id="view-mental-selector" class="hidden relative z-10 transition-opacity duration-300">
       <div id="mentalLockedHeaderBanner" class="p-6 rounded-3xl bg-amber-50 border-2 border-amber-300 text-amber-950 mb-8 flex flex-col md:flex-row items-center justify-between gap-5 tokotoko-shadow">
@@ -440,6 +659,157 @@
           </div>
           <div class="mt-6 pt-4 border-t border-tokotoko-sage/30 flex items-center text-xs font-bold text-[#525317]">
             <span>Explore Jigsaw North →</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: Mental Option 1 (Man Alive Whangārei) -->
+    <section id="view-mental-option1" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
+        <div class="flex items-center justify-between mb-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tokotoko-primary/15 text-tokotoko-primary text-xs font-bold uppercase tracking-wider">
+            <span>🛡️</span> Mental Pathway 1: By Men, For Men
+          </span>
+          <button onclick="navigateTo('mental-selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
+            ← Change Mental Pathway
+          </button>
+        </div>
+
+        <div class="max-w-3xl mb-6">
+          <div class="w-14 h-14 rounded-2xl bg-tokotoko-primary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">👥</div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+            Man Alive Whangārei: Dedicated Men's Support
+          </h2>
+          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
+            Man Alive is New Zealand's leading dedicated men's centre. Operating specifically for men, by men, they provide non-judgmental spaces to discuss conflict, anxiety, relationship strain, anger, and parenting without clinical stigma.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-tokotoko-sage/60 mb-8 tokotoko-shadow">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="max-w-xl">
+              <span class="inline-block px-2.5 py-0.5 rounded bg-tokotoko-primary/10 text-tokotoko-primary text-[11px] font-bold uppercase tracking-wider mb-2">Northland Directory Listing</span>
+              <h3 class="text-xl font-bold text-tokotoko-espresso">Man Alive Whangārei Programs</h3>
+              <p class="text-xs sm:text-sm text-tokotoko-espresso/70 mt-2 leading-relaxed">
+                Offers one-on-one counselling with male clinicians, men's living without violence courses, anger regulation groups, and adolescent boy mentoring programs.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="https://www.northlandwellbeing.org.nz/directory-listings/ManAlive" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="px-5 py-3 bg-tokotoko-primary hover:bg-tokotoko-primaryDark text-white font-bold text-xs rounded-xl transition shadow flex items-center justify-center gap-2 whitespace-nowrap">
+                <span>View Directory Listing</span>
+                <svg class="w-4 h-4 fill-none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+              <button onclick="copyToClipboard('https://www.northlandwellbeing.org.nz/directory-listings/ManAlive')" class="px-4 py-3 bg-[#F2EFE9] hover:bg-tokotoko-sage/30 text-tokotoko-espresso text-xs font-bold rounded-xl transition border border-tokotoko-sage">
+                Copy Link
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[#F0ECE1] rounded-2xl p-6 border border-tokotoko-sage/60 mb-6">
+          <h4 class="text-sm font-extrabold text-tokotoko-espresso uppercase tracking-wider mb-2">Week 2 Mental Focus & Challenge:</h4>
+          <p class="text-xs text-tokotoko-espresso/80 leading-relaxed mb-3">
+            In Week 2 we focus on <strong>reprogramming default reactions</strong> and controlling our self-talk. Take on the <strong>5-Minute Listening Challenge</strong>: ask a whānau member or friend how their day went, and listen attentively for 5 minutes without inserting yourself or offering instant fixes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: Mental Option 2 (Northland Men's Project) -->
+    <section id="view-mental-option2" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
+        <div class="flex items-center justify-between mb-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tokotoko-secondary/20 text-[#635b00] text-xs font-bold uppercase tracking-wider">
+            <span>🌿</span> Mental Pathway 2: Beyond Traditional Counselling
+          </span>
+          <button onclick="navigateTo('mental-selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
+            ← Change Mental Pathway
+          </button>
+        </div>
+
+        <div class="max-w-3xl mb-6">
+          <div class="w-14 h-14 rounded-2xl bg-tokotoko-secondary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">🛶</div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+            Nga Manga Puriri
+          </h2>
+          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
+            Not all men thrive sitting across from a therapist in a clinic. Nga Manga Puriri delivers kaupapa maori programs, wananga and community initiatives that strengthens whanau and promotes wellbeing.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-tokotoko-sage/60 mb-8 tokotoko-shadow">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="max-w-xl">
+              <span class="inline-block px-2.5 py-0.5 rounded bg-tokotoko-secondary/20 text-[#635b00] text-[11px] font-bold uppercase tracking-wider mb-2">Community Initiative</span>
+              <h3 class="text-xl font-bold text-tokotoko-espresso">Nga Manga Puriri Website</h3>
+              <p class="text-xs sm:text-sm text-tokotoko-espresso/70 mt-2 leading-relaxed">
+                Discover one-to-one support, community workshops, and practical resources helping Northland men overcome isolation and find purpose.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="https://www.nmp.org.nz/" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="px-5 py-3 bg-tokotoko-secondary hover:bg-yellow-600 text-white font-bold text-xs rounded-xl transition shadow flex items-center justify-center gap-2 whitespace-nowrap">
+                <span>Visit NMP Website</span>
+                <svg class="w-4 h-4 fill-none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+              <button onclick="copyToClipboard('https://www.nmp.org.nz/')" class="px-4 py-3 bg-[#F2EFE9] hover:bg-tokotoko-sage/30 text-tokotoko-espresso text-xs font-bold rounded-xl transition border border-tokotoko-sage">
+                Copy Link
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: Mental Option 3 (Jigsaw North) -->
+    <section id="view-mental-option3" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
+        <div class="flex items-center justify-between mb-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
+            <span>🤝</span> Mental Pathway 3: Free Community Support
+          </span>
+          <button onclick="navigateTo('mental-selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
+            ← Change Mental Pathway
+          </button>
+        </div>
+
+        <div class="max-w-3xl mb-6">
+          <div class="w-14 h-14 rounded-2xl bg-[#525317] text-white flex items-center justify-center text-2xl mb-4 shadow-sm">🏡</div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+            Jigsaw North Whangārei
+          </h2>
+          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
+            Cost should never be a barrier to seeking support. Jigsaw North provides free, confidential social work, family advocacy, and mental health counseling across Whangārei for men, parents, and whānau.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-tokotoko-sage/60 mb-8 tokotoko-shadow">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="max-w-xl">
+              <span class="inline-block px-2.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[11px] font-bold uppercase tracking-wider mb-2">Free Whānau Support</span>
+              <h3 class="text-xl font-bold text-tokotoko-espresso">Jigsaw North Whangārei Services</h3>
+              <p class="text-xs sm:text-sm text-tokotoko-espresso/70 mt-2 leading-relaxed">
+                Connect with compassionate family support workers, access parenting guidance, or speak confidentially about emotional wellbeing and home stress.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="https://www.jigsawnorth.org.nz/" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="px-5 py-3 bg-[#525317] hover:bg-tokotoko-espresso text-white font-bold text-xs rounded-xl transition shadow flex items-center justify-center gap-2 whitespace-nowrap">
+                <span>Visit Jigsaw North</span>
+                <svg class="w-4 h-4 fill-none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+              <button onclick="copyToClipboard('https://www.jigsawnorth.org.nz/')" class="px-4 py-3 bg-[#F2EFE9] hover:bg-tokotoko-sage/30 text-tokotoko-espresso text-xs font-bold rounded-xl transition border border-tokotoko-sage">
+                Copy Link
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -520,6 +890,219 @@
       </div>
     </section>
 
+    <!-- VIEW: Spiritual Option 1 (Broxh) - FULL RICH CONTENT -->
+    <section id="view-spiritual-option1" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
+        <div class="flex items-center justify-between mb-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tokotoko-primary/15 text-tokotoko-primary text-xs font-bold uppercase tracking-wider">
+            <span>🪓</span> Spiritual Pathway 1: Self & Joy
+          </span>
+          <button onclick="navigateTo('spiritual-selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
+            ← Change Spiritual Pathway
+          </button>
+        </div>
+
+        <div class="max-w-3xl mb-6">
+          <div class="w-14 h-14 rounded-2xl bg-tokotoko-primary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">🪵</div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+            Broxh: What Fills Your Cup?
+          </h2>
+          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
+            Broxh (Daytona Taputu) is a traditional Māori wood carver (whakairo) from Rotorua who captivated millions worldwide. He didn't chase fame or money—he simply sat down at his chisel and worked on something that brought him wairua, patience, and genuine joy. His peaceful demeanor and refusal of expensive gifts reminded the world what true spiritual grounding looks like.
+          </p>
+        </div>
+
+        <!-- Video Card -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-tokotoko-sage/60 mb-8 tokotoko-shadow">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="max-w-xl">
+              <span class="inline-block px-2.5 py-0.5 rounded bg-tokotoko-primary/10 text-tokotoko-primary text-[11px] font-bold uppercase tracking-wider mb-2">Featured Watch</span>
+              <h3 class="text-xl font-bold text-tokotoko-espresso">Broxh's Whakairo & Joy Journey</h3>
+              <p class="text-xs sm:text-sm text-tokotoko-espresso/70 mt-2 leading-relaxed">
+                Watch this perspective on cultivating a craft, maintaining humbleness, and protecting the quiet hours that restore your spiritual energy.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="https://www.youtube.com/watch?v=oCrN10ybCBA&t=1s" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="px-5 py-3 bg-red-700 hover:bg-red-800 text-white font-bold text-xs rounded-xl transition shadow flex items-center justify-center gap-2 whitespace-nowrap">
+                <span>Watch on YouTube</span>
+                <svg class="w-4 h-4 fill-none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+              <button onclick="copyToClipboard('https://www.youtube.com/watch?v=oCrN10ybCBA&t=1s')" class="px-4 py-3 bg-[#F2EFE9] hover:bg-tokotoko-sage/30 text-tokotoko-espresso text-xs font-bold rounded-xl transition border border-tokotoko-sage">
+                Copy Link
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Practical encouragement for the men -->
+        <div class="bg-[#F0ECE1] rounded-2xl p-6 border border-tokotoko-sage/60 mb-6">
+          <h4 class="text-sm font-extrabold text-tokotoko-espresso uppercase tracking-wider mb-2">Encouragement for Tokotoko Men:</h4>
+          <p class="text-xs text-tokotoko-espresso/80 leading-relaxed mb-3">
+            What is one project you used to love that you gave up on? Carving, woodwork, drawing, rebuilding a car engine, fishing, playing music, or tending to a garden?
+          </p>
+          <ul class="space-y-1.5 text-xs text-tokotoko-espresso/85">
+            <li class="flex items-center gap-2"><span class="text-tokotoko-primary font-bold">✓</span> Dedicate at least 30 distraction-free minutes this week to a creative craft.</li>
+            <li class="flex items-center gap-2"><span class="text-tokotoko-primary font-bold">✓</span> Learn one new technique or skill without worrying about whether it makes money.</li>
+            <li class="flex items-center gap-2"><span class="text-tokotoko-primary font-bold">✓</span> Notice how working with your hands silences anxious thoughts in your head.</li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+          <p class="text-xs text-tokotoko-espresso font-semibold">Ready to record today's passion project in Week 3?</p>
+          <button onclick="switchTrackerWeek(3); navigateTo('tracker');" class="px-5 py-2.5 bg-tokotoko-primary text-white text-xs font-bold rounded-xl hover:bg-tokotoko-primaryDark transition shadow">
+            Open Week 3 Tracker
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: Spiritual Option 2 (Louis Davis) - FULL RICH CONTENT -->
+    <section id="view-spiritual-option2" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
+        <div class="flex items-center justify-between mb-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tokotoko-secondary/20 text-[#635b00] text-xs font-bold uppercase tracking-wider">
+            <span>🏠</span> Spiritual Pathway 2: Whānau Service
+          </span>
+          <button onclick="navigateTo('spiritual-selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
+            ← Change Spiritual Pathway
+          </button>
+        </div>
+
+        <div class="max-w-3xl mb-6">
+          <div class="w-14 h-14 rounded-2xl bg-tokotoko-secondary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">❤️</div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+            Serve My Family: Louis Davis
+          </h2>
+          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
+            When men become overwhelmed with personal stress or unemployment, our instinct is often to retreat inside our heads. However, serving your whānau—doing things for your partner and tamariki without being asked—takes the focus off your own burdens and instantly recharges your spiritual cup.
+          </p>
+        </div>
+
+        <!-- Video Card -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-tokotoko-sage/60 mb-8 tokotoko-shadow">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="max-w-xl">
+              <span class="inline-block px-2.5 py-0.5 rounded bg-tokotoko-secondary/20 text-[#635b00] text-[11px] font-bold uppercase tracking-wider mb-2">Featured Creator</span>
+              <h3 class="text-xl font-bold text-tokotoko-espresso">Louis Davis: Everyday Whānau Service</h3>
+              <p class="text-xs sm:text-sm text-tokotoko-espresso/70 mt-2 leading-relaxed">
+                Watch this lighthearted, real-life video from Louis Davis highlighting how small, practical acts of service around the home build respect and warm the household wairua.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="https://www.tiktok.com/@louisdavis_/video/7695686777079729428?is_from_webapp=1&sender_device=pc" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="px-5 py-3 bg-black hover:bg-gray-800 text-white font-bold text-xs rounded-xl transition shadow flex items-center justify-center gap-2 whitespace-nowrap">
+                <span>Watch on TikTok</span>
+                <svg class="w-4 h-4 fill-none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+              <button onclick="copyToClipboard('https://www.tiktok.com/@louisdavis_/video/7695686777079729428?is_from_webapp=1&sender_device=pc')" class="px-4 py-3 bg-[#F2EFE9] hover:bg-tokotoko-sage/30 text-tokotoko-espresso text-xs font-bold rounded-xl transition border border-tokotoko-sage">
+                Copy Link
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Practical Whānau Service Ideas -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+            <span class="w-8 h-8 rounded-lg bg-tokotoko-secondary/20 text-[#635b00] flex items-center justify-center font-bold text-xs mb-2">TASK 1</span>
+            <h5 class="text-sm font-bold text-tokotoko-espresso">Unprompted Kitchen Mahi</h5>
+            <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+              Clean up after dinner, wash the dishes, or prep breakfast for the whānau before anyone else wakes up.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+            <span class="w-8 h-8 rounded-lg bg-tokotoko-secondary/20 text-[#635b00] flex items-center justify-center font-bold text-xs mb-2">TASK 2</span>
+            <h5 class="text-sm font-bold text-tokotoko-espresso">Undivided Listening</h5>
+            <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+              Put your phone in another room and give your partner or child 20 minutes of 100% active attention.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+            <span class="w-8 h-8 rounded-lg bg-tokotoko-secondary/20 text-[#635b00] flex items-center justify-center font-bold text-xs mb-2">TASK 3</span>
+            <h5 class="text-sm font-bold text-tokotoko-espresso">Whānau Vehicle / Yard Check</h5>
+            <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+              Mow the lawns, clean the car windscreen, check tire pressures, and make sure your family's travel is safe.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: Spiritual Option 3 (Millan Ruka MNZM) - FULL RICH CONTENT -->
+    <section id="view-spiritual-option3" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
+        <div class="flex items-center justify-between mb-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
+            <span>🌊</span> Spiritual Pathway 3: Kaitiakitanga & Community Service
+          </span>
+          <button onclick="navigateTo('spiritual-selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
+            ← Change Spiritual Pathway
+          </button>
+        </div>
+
+        <div class="max-w-3xl mb-6">
+          <div class="w-14 h-14 rounded-2xl bg-[#525317] text-white flex items-center justify-center text-2xl mb-4 shadow-sm">🌿</div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+            Millan Ruka (MNZM): Whangārei Environmental Kaitiaki
+          </h2>
+          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
+            Millan Ruka (MNZM) is a deeply respected Northland environmental champion, kaitiaki (guardian), and digital creator based right here in Whangārei. A descendant of Ngāpuhi iwi (Te Uriroroi, Te Parawhau, and Te Mahurehure ki Whatitiri hapū), he has dedicated decades to protecting and restoring fresh waterways across Te Tai Tokerau.
+          </p>
+        </div>
+
+        <!-- Key Projects & Core Work Breakdown -->
+        <div class="space-y-4 mb-8">
+          <h3 class="text-lg font-bold text-tokotoko-espresso">Key Projects & Core Work:</h3>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <h4 class="font-bold text-sm text-tokotoko-espresso mb-1">Environment River Patrol (ERP-A)</h4>
+              <p class="text-xs text-tokotoko-espresso/70 leading-relaxed">
+                Founded this watchdog group to monitor Northland's major river systems (Wairua, Māngere, Mangakahia). Operating from kayaks and a river boat, he uses GPS photography and video to relentlessly document stock damage and effluent entering water.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <h4 class="font-bold text-sm text-tokotoko-espresso mb-1">The "Ruka Marine Turbine" (RMT)</h4>
+              <p class="text-xs text-tokotoko-espresso/70 leading-relaxed">
+                Melding modern technology with mātauranga Māori, spent 25 years developing a clean-energy turbine designed to generate renewable electricity from shallow, swift river currents without disrupting local eel (tuna) populations.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <h4 class="font-bold text-sm text-tokotoko-espresso mb-1">Defending Porotī Springs</h4>
+              <p class="text-xs text-tokotoko-espresso/70 leading-relaxed">
+                Led a massive community campaign via ActionStation that mobilised hundreds of people to successfully halt a planned commercial water bottling factory right next to the sacred, pure water source of Porotī Springs.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tangible Achievements & Impact -->
+        <div class="p-6 rounded-2xl bg-[#EBE7DF] border border-tokotoko-sage mb-6">
+          <h3 class="text-sm font-black text-tokotoko-espresso uppercase tracking-wider mb-3">Tangible Achievements & Recognitions</h3>
+          <div class="space-y-2 text-xs text-tokotoko-espresso/80">
+            <p><strong>• Hundreds of Kilometres of Fencing:</strong> Filed over 700 highly detailed pollution reports to local councils, forcing regulatory action and hundreds of kilometres of new riparian fencing to keep cattle out of rivers.</p>
+            <p><strong>• Policy & Water Rights Advocacy:</strong> Served on national Kāhui Wai Māori (Freshwater Advisory Group), shaping Te Mana o te Wai principles and contributing to the landmark deal recognising iwi mana over Porotī Springs.</p>
+            <p><strong>• Conservation of Taonga Species:</strong> Frontline work shielding depleting populations of native tuna (longfin eel) from toxic runoff.</p>
+            <p><strong>• Official Honours:</strong> Member of the New Zealand Order of Merit (MNZM in 2018), "Voice of the River" Award (2016 NZ River Awards), and Kiwibank Local Hero Medalist (2013).</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+          <p class="text-xs text-tokotoko-espresso font-semibold">Join this week's Tokotoko community service project:</p>
+          <button onclick="switchTrackerWeek(3); navigateTo('tracker');" class="px-5 py-2.5 bg-tokotoko-primary text-white text-xs font-bold rounded-xl hover:bg-tokotoko-primaryDark transition shadow">
+            Open Week 3 Tracker
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- VIEW: Relationships Selection Form (Week 4) -->
     <section id="view-relationships-selector" class="hidden relative z-10 transition-opacity duration-300">
       <div id="relationshipsLockedHeaderBanner" class="p-6 rounded-3xl bg-amber-50 border-2 border-amber-300 text-amber-950 mb-8 flex flex-col md:flex-row items-center justify-between gap-5 tokotoko-shadow">
@@ -591,6 +1174,297 @@
           <div class="mt-6 pt-4 border-t border-tokotoko-sage/30 flex items-center text-xs font-bold text-[#525317]">
             <span>Building Brotherhood →</span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: Relationships Option 1 (Roles and Responsibilities) - FULL DETAILED CONTENT -->
+    <section id="view-relationships-option1" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
+        <div class="flex items-center justify-between mb-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tokotoko-primary/15 text-tokotoko-primary text-xs font-bold uppercase tracking-wider">
+            <span>🛡️</span> Relationship Pathway 1: Roles & Responsibilities
+          </span>
+          <button onclick="navigateTo('relationships-selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
+            ← Change Relationships Pathway
+          </button>
+        </div>
+
+        <div class="max-w-3xl mb-6">
+          <div class="w-14 h-14 rounded-2xl bg-tokotoko-primary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">🛶</div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+            Roles & Responsibilities: Anchoring Your Whānau
+          </h2>
+          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
+            In our Māori and Pacific cultures, as in all healthy communities, a man's role isn't about dominance—it is about shelter, service, moral courage, and providing an emotional and physical anchor for the whānau. When life gets choppy, the family looks to see how grounded the father or brother is.
+          </p>
+        </div>
+
+        <!-- Featured Video Card -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-tokotoko-sage/60 mb-8 tokotoko-shadow">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="max-w-xl">
+              <span class="inline-block px-2.5 py-0.5 rounded bg-tokotoko-primary/10 text-tokotoko-primary text-[11px] font-bold uppercase tracking-wider mb-2">Featured Watch</span>
+              <h3 class="text-xl font-bold text-tokotoko-espresso">Understanding Our Stories & The People in Our Care</h3>
+              <p class="text-xs sm:text-sm text-tokotoko-espresso/70 mt-2 leading-relaxed">
+                Watch this perspective on understanding the human beings around you beyond surface-level assumptions. Recognize the unseen burdens people carry and step up with empathetic strength.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="https://www.youtube.com/watch?v=sHMWDi14jwk" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="px-5 py-3 bg-red-700 hover:bg-red-800 text-white font-bold text-xs rounded-xl transition shadow flex items-center justify-center gap-2 whitespace-nowrap">
+                <span>Watch on YouTube</span>
+                <svg class="w-4 h-4 fill-none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+              <button onclick="copyToClipboard('https://www.youtube.com/watch?v=sHMWDi14jwk')" class="px-4 py-3 bg-[#F2EFE9] hover:bg-tokotoko-sage/30 text-tokotoko-espresso text-xs font-bold rounded-xl transition border border-tokotoko-sage">
+                Copy Link
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Tools to live up to roles -->
+        <div class="mb-8">
+          <h4 class="text-base font-extrabold text-tokotoko-espresso mb-4 flex items-center gap-2">
+            <span>⚙️</span> Practical Tools to Live Up to Your Roles
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <span class="w-8 h-8 rounded-lg bg-tokotoko-primary/10 text-tokotoko-primary flex items-center justify-center font-bold text-xs mb-2">TOOL 1</span>
+              <h5 class="text-sm font-bold text-tokotoko-espresso">Role Clarification Check</h5>
+              <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+                Sit down and write out: What does my partner actually need from me this month? What do my kids need? Clear expectations remove frustration.
+              </p>
+            </div>
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <span class="w-8 h-8 rounded-lg bg-tokotoko-primary/10 text-tokotoko-primary flex items-center justify-center font-bold text-xs mb-2">TOOL 2</span>
+              <h5 class="text-sm font-bold text-tokotoko-espresso">The Capacity Filter</h5>
+              <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+                Positioning yourself realistically means saying "no" to distractions so you have energy left for your core duties at home and work.
+              </p>
+            </div>
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <span class="w-8 h-8 rounded-lg bg-tokotoko-primary/10 text-tokotoko-primary flex items-center justify-center font-bold text-xs mb-2">TOOL 3</span>
+              <h5 class="text-sm font-bold text-tokotoko-espresso">Whānau Check-in Talanoa</h5>
+              <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+                Hold a weekly 10-minute huddle at home: <em>"How are we travelling as a whānau this week? What do we need to prepare for?"</em>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Practical Application -->
+        <div class="bg-[#F0ECE1] rounded-2xl p-6 border border-tokotoko-sage/60 mb-6">
+          <h4 class="text-sm font-extrabold text-tokotoko-espresso uppercase tracking-wider mb-2">Practical Application This Week:</h4>
+          <ul class="space-y-2 text-xs text-tokotoko-espresso/85 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-tokotoko-primary font-bold">✓</span>
+              <span><strong>Own One Household Burden:</strong> Pick one responsibility that usually falls on someone else (e.g. dinner, laundry, morning school prep) and own it 100% without being asked.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-tokotoko-primary font-bold">✓</span>
+              <span><strong>Calm the Storm:</strong> When tension rises in your household, consciously lower your voice, drop your shoulders, and provide steady reassurance.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-tokotoko-primary font-bold">✓</span>
+              <span><strong>Community Stance:</strong> Step up to help an elderly neighbour or whānau member with heavy lifting or property upkeep this weekend.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+          <p class="text-xs text-tokotoko-espresso font-semibold">Ready to record today's habit check-in for Week 4?</p>
+          <button onclick="switchTrackerWeek(4); navigateTo('tracker');" class="px-5 py-2.5 bg-tokotoko-primary text-white text-xs font-bold rounded-xl hover:bg-tokotoko-primaryDark transition shadow">
+            Open Week 4 Habit Tracker
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: Relationships Option 2 (Being Present) - FULL DETAILED CONTENT -->
+    <section id="view-relationships-option2" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
+        <div class="flex items-center justify-between mb-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tokotoko-secondary/20 text-[#635b00] text-xs font-bold uppercase tracking-wider">
+            <span>👁️</span> Relationship Pathway 2: Being Present
+          </span>
+          <button onclick="navigateTo('relationships-selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
+            ← Change Relationships Pathway
+          </button>
+        </div>
+
+        <div class="max-w-3xl mb-6">
+          <div class="w-14 h-14 rounded-2xl bg-tokotoko-secondary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">❤️</div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+            Your Attention & Affection: The Greatest Gift
+          </h2>
+          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
+            You can be sitting in the same lounge with your partner and kids, yet be a million miles away in your head or scrolling on your phone. To a child or a partner, attention equals love. Physical presence without emotional attention leaves loved ones feeling isolated.
+          </p>
+        </div>
+
+        <!-- Understanding Presence Breakdown -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+          <div class="p-6 rounded-2xl bg-white border border-tokotoko-sage/50">
+            <span class="text-xs font-black uppercase text-red-600 block mb-1">Distracted Presence</span>
+            <h4 class="font-bold text-sm text-tokotoko-espresso mb-2">Being in the room, but on screens</h4>
+            <p class="text-xs text-tokotoko-espresso/70 leading-relaxed">
+              Eyes glued to TikTok or Facebook, giving half-answers, snapping when interrupted, or thinking about work worries instead of listening.
+            </p>
+          </div>
+          <div class="p-6 rounded-2xl bg-white border border-tokotoko-secondary/50">
+            <span class="text-xs font-black uppercase text-emerald-700 block mb-1">Undivided Presence</span>
+            <h4 class="font-bold text-sm text-tokotoko-espresso mb-2">Eyes, Ears & Heart locked in</h4>
+            <p class="text-xs text-tokotoko-espresso/70 leading-relaxed">
+              Eye-level contact with your tamariki, active nodding, putting the device face down, and validating feelings before trying to give solutions.
+            </p>
+          </div>
+        </div>
+
+        <!-- 3 Presence Tools -->
+        <div class="mb-8">
+          <h4 class="text-base font-extrabold text-tokotoko-espresso mb-4 flex items-center gap-2">
+            <span>🧰</span> Tools to Build Daily Presence
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <span class="w-8 h-8 rounded-lg bg-tokotoko-secondary/20 text-[#635b00] flex items-center justify-center font-bold text-xs mb-2">TOOL 1</span>
+              <h5 class="text-sm font-bold text-tokotoko-espresso">The 3-Second Threshold Reset</h5>
+              <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+                Before stepping through your front door at home, pause for 3 seconds. Exhale work stress. Walk in ready to offer warmth and eye contact.
+              </p>
+            </div>
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <span class="w-8 h-8 rounded-lg bg-tokotoko-secondary/20 text-[#635b00] flex items-center justify-center font-bold text-xs mb-2">TOOL 2</span>
+              <h5 class="text-sm font-bold text-tokotoko-espresso">The Device Basket</h5>
+              <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+                Designate 6:00pm - 7:30pm as no-phone family time. Keep phones charging in another room during dinner and bedtime routines.
+              </p>
+            </div>
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <span class="w-8 h-8 rounded-lg bg-tokotoko-secondary/20 text-[#635b00] flex items-center justify-center font-bold text-xs mb-2">TOOL 3</span>
+              <h5 class="text-sm font-bold text-tokotoko-espresso">Child-Led Play / Partner Date</h5>
+              <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+                Let your child choose what to do for 30 minutes without directing them. Or take your partner for an evening stroll along the Whangārei loop.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Practical Application -->
+        <div class="bg-[#F0ECE1] rounded-2xl p-6 border border-tokotoko-sage/60 mb-6">
+          <h4 class="text-sm font-extrabold text-tokotoko-espresso uppercase tracking-wider mb-2">Practical Application This Week:</h4>
+          <ul class="space-y-2 text-xs text-tokotoko-espresso/85 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-tokotoko-secondary font-bold">✓</span>
+              <span><strong>The 20-Second Hug:</strong> Greet your partner or tamariki with a genuine, uninterrupted 20-second hug. It releases oxytocin and signals physical safety.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-tokotoko-secondary font-bold">✓</span>
+              <span><strong>Child’s Choice Activity:</strong> Complete this week’s habit milestone: let your tamariki or partner pick an activity to do together with zero phones allowed.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+          <p class="text-xs text-tokotoko-espresso font-semibold">Tracked your presence activity in your daily log?</p>
+          <button onclick="switchTrackerWeek(4); navigateTo('tracker');" class="px-5 py-2.5 bg-tokotoko-secondary hover:bg-yellow-600 text-white text-xs font-bold rounded-xl transition shadow">
+            Open Week 4 Tracker
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: Relationships Option 3 (Belonging & Brotherhood) - FULL DETAILED CONTENT -->
+    <section id="view-relationships-option3" class="hidden relative z-10 transition-opacity duration-300">
+      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
+        <div class="flex items-center justify-between mb-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
+            <span>🛡️</span> Relationship Pathway 3: Belonging & Brotherhood
+          </span>
+          <button onclick="navigateTo('relationships-selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
+            ← Change Relationships Pathway
+          </button>
+        </div>
+
+        <div class="max-w-3xl mb-6">
+          <div class="w-14 h-14 rounded-2xl bg-[#525317] text-white flex items-center justify-center text-2xl mb-4 shadow-sm">👥</div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
+            Belonging: Building Your Brotherhood
+          </h2>
+          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
+            <em>"Show me your friends, and I will show you your future."</em> An isolated man is vulnerable to old habits, depression, and frustration. When you surround yourself with men who hold high standards, seek employment, and love their families, you build an unbreakable vaka.
+          </p>
+        </div>
+
+        <!-- Belonging benefits grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+          <div class="p-6 rounded-2xl bg-white border border-tokotoko-sage/50">
+            <h4 class="font-bold text-sm text-tokotoko-espresso mb-1">Accountability without Shame</h4>
+            <p class="text-xs text-tokotoko-espresso/70 leading-relaxed">
+              Brothers call you up when you're slipping into old bad habits, not to condemn you, but to pull you forward toward your goals.
+            </p>
+          </div>
+          <div class="p-6 rounded-2xl bg-white border border-tokotoko-sage/50">
+            <h4 class="font-bold text-sm text-tokotoko-espresso mb-1">Shared Burdens & Real Talanoa</h4>
+            <p class="text-xs text-tokotoko-espresso/70 leading-relaxed">
+              Knowing that other men are fighting through the same financial worries, relationship challenges, and job hunts breaks the lie that you are alone.
+            </p>
+          </div>
+        </div>
+
+        <!-- 3 Brotherhood Tools -->
+        <div class="mb-8">
+          <h4 class="text-base font-extrabold text-tokotoko-espresso mb-4 flex items-center gap-2">
+            <span>⚙️</span> Tools to Choose & Build Your Inner Circle
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <span class="w-8 h-8 rounded-lg bg-[#525317]/15 text-[#525317] flex items-center justify-center font-bold text-xs mb-2">TOOL 1</span>
+              <h5 class="text-sm font-bold text-tokotoko-espresso">The 5-Brother Audit</h5>
+              <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+                Look at the 5 people you text most often. Are they pulling you toward employment and family peace, or dragging you back to drinking and drama?
+              </p>
+            </div>
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <span class="w-8 h-8 rounded-lg bg-[#525317]/15 text-[#525317] flex items-center justify-center font-bold text-xs mb-2">TOOL 2</span>
+              <h5 class="text-sm font-bold text-tokotoko-espresso">Low-Pressure Check-in Call</h5>
+              <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+                Send a quick message to a brother: <em>"Just checking in on you bro, hope your week is solid. Let me know if you need anything."</em>
+              </p>
+            </div>
+            <div class="p-5 rounded-2xl bg-white border border-tokotoko-sage/50">
+              <span class="w-8 h-8 rounded-lg bg-[#525317]/15 text-[#525317] flex items-center justify-center font-bold text-xs mb-2">TOOL 3</span>
+              <h5 class="text-sm font-bold text-tokotoko-espresso">Shoulder-to-Shoulder Mahi</h5>
+              <p class="text-xs text-tokotoko-espresso/75 mt-1 leading-relaxed">
+                Connect through physical action—like our Tokotoko fishing trip, gym sessions, or walking groups where bonds form naturally.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Practical Application -->
+        <div class="bg-[#F0ECE1] rounded-2xl p-6 border border-tokotoko-sage/60 mb-6">
+          <h4 class="text-sm font-extrabold text-tokotoko-espresso uppercase tracking-wider mb-2">Practical Application This Week:</h4>
+          <ul class="space-y-2 text-xs text-tokotoko-espresso/85 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-tokotoko-primary font-bold">✓</span>
+              <span><strong>Reach Out to One Brother:</strong> Call or text one man from Tokotoko or your whānau this week solely to encourage him and see how he is tracking.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-tokotoko-primary font-bold">✓</span>
+              <span><strong>Join the Fishing/Gathering Activity:</strong> Commit to attending the upcoming Tokotoko brotherhood outdoor connection session.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+          <p class="text-xs text-tokotoko-espresso font-semibold">Ready to record today's brotherhood connection?</p>
+          <button onclick="switchTrackerWeek(4); navigateTo('tracker');" class="px-5 py-2.5 bg-tokotoko-primary text-white text-xs font-bold rounded-xl hover:bg-tokotoko-primaryDark transition shadow">
+            Open Week 4 Tracker
+          </button>
         </div>
       </div>
     </section>
@@ -1575,260 +2449,6 @@
             Open Week 7 Tracker
           </button>
         </div>
-      </div>
-    </section>
-
-    <!-- (Remaining Sections continue: Option views 1-3 for Weeks 1-4 and Tracker) -->
-
-    <!-- VIEW: Relationships Option 1 (Roles and Responsibilities) -->
-    <section id="view-relationships-option1" class="hidden relative z-10 transition-opacity duration-300">
-      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
-        <div class="flex items-center justify-between mb-6">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tokotoko-primary/15 text-tokotoko-primary text-xs font-bold uppercase tracking-wider">
-            <span>🛡️</span> Relationship Pathway 1: Roles & Responsibilities
-          </span>
-          <button onclick="navigateTo('relationships-selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
-            ← Change Relationships Pathway
-          </button>
-        </div>
-
-        <div class="max-w-3xl mb-6">
-          <div class="w-14 h-14 rounded-2xl bg-tokotoko-primary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">🛶</div>
-          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
-            Roles & Responsibilities: Anchoring Your Whānau
-          </h2>
-          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
-            In our Māori and Pacific cultures, as in all healthy communities, a man's role isn't about dominance—it is about shelter, service, moral courage, and providing an emotional and physical anchor for the whānau.
-          </p>
-        </div>
-
-        <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-tokotoko-sage/60 mb-8 tokotoko-shadow">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div class="max-w-xl">
-              <span class="inline-block px-2.5 py-0.5 rounded bg-tokotoko-primary/10 text-tokotoko-primary text-[11px] font-bold uppercase tracking-wider mb-2">Featured Watch</span>
-              <h3 class="text-xl font-bold text-tokotoko-espresso">Understanding Our Stories & The People in Our Care</h3>
-              <p class="text-xs sm:text-sm text-tokotoko-espresso/70 mt-2">
-                Watch this perspective on understanding the human beings around you beyond surface-level assumptions.
-              </p>
-            </div>
-            <div class="flex flex-col sm:flex-row gap-3">
-              <a href="https://www.youtube.com/watch?v=sHMWDi14jwk" target="_blank" rel="noopener noreferrer" class="px-5 py-3 bg-red-700 hover:bg-red-800 text-white font-bold text-xs rounded-xl transition shadow flex items-center justify-center gap-2 whitespace-nowrap">
-                <span>Watch on YouTube</span>
-              </a>
-              <button onclick="copyToClipboard('https://www.youtube.com/watch?v=sHMWDi14jwk')" class="px-4 py-3 bg-[#F2EFE9] hover:bg-tokotoko-sage/30 text-tokotoko-espresso text-xs font-bold rounded-xl transition border border-tokotoko-sage">
-                Copy Link
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
-          <p class="text-xs text-tokotoko-espresso font-semibold">Ready to record today's habit check-in for Week 4?</p>
-          <button onclick="switchTrackerWeek(4); navigateTo('tracker');" class="px-5 py-2.5 bg-tokotoko-primary text-white text-xs font-bold rounded-xl hover:bg-tokotoko-primaryDark transition shadow">
-            Open Week 4 Habit Tracker
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- VIEW: Relationships Option 2 (Being Present) -->
-    <section id="view-relationships-option2" class="hidden relative z-10 transition-opacity duration-300">
-      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
-        <div class="flex items-center justify-between mb-6">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tokotoko-secondary/20 text-[#635b00] text-xs font-bold uppercase tracking-wider">
-            <span>👁️</span> Relationship Pathway 2: Being Present
-          </span>
-          <button onclick="navigateTo('relationships-selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
-            ← Change Relationships Pathway
-          </button>
-        </div>
-
-        <div class="max-w-3xl mb-6">
-          <div class="w-14 h-14 rounded-2xl bg-tokotoko-secondary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">❤️</div>
-          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
-            Your Attention & Affection: The Greatest Gift
-          </h2>
-          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
-            You can be sitting in the same lounge with your partner and kids, yet be a million miles away in your head or scrolling on your phone. To a child or a partner, attention equals love.
-          </p>
-        </div>
-
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
-          <p class="text-xs text-tokotoko-espresso font-semibold">Tracked your presence activity in your daily log?</p>
-          <button onclick="switchTrackerWeek(4); navigateTo('tracker');" class="px-5 py-2.5 bg-tokotoko-secondary hover:bg-yellow-600 text-white text-xs font-bold rounded-xl transition shadow">
-            Open Week 4 Tracker
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- VIEW: Relationships Option 3 (Belonging & Brotherhood) -->
-    <section id="view-relationships-option3" class="hidden relative z-10 transition-opacity duration-300">
-      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
-        <div class="flex items-center justify-between mb-6">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
-            <span>🛡️</span> Relationship Pathway 3: Belonging & Brotherhood
-          </span>
-          <button onclick="navigateTo('relationships-selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
-            ← Change Relationships Pathway
-          </button>
-        </div>
-
-        <div class="max-w-3xl mb-6">
-          <div class="w-14 h-14 rounded-2xl bg-[#525317] text-white flex items-center justify-center text-2xl mb-4 shadow-sm">👥</div>
-          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">
-            Belonging: Building Your Brotherhood
-          </h2>
-          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
-            <em>"Show me your friends, and I will show you your future."</em> An isolated man is vulnerable to old habits, depression, and frustration. When you surround yourself with men who hold high standards, you build an unbreakable vaka.
-          </p>
-        </div>
-
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
-          <p class="text-xs text-tokotoko-espresso font-semibold">Ready to record today's brotherhood connection?</p>
-          <button onclick="switchTrackerWeek(4); navigateTo('tracker');" class="px-5 py-2.5 bg-tokotoko-primary text-white text-xs font-bold rounded-xl hover:bg-tokotoko-primaryDark transition shadow">
-            Open Week 4 Tracker
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- VIEW: Spiritual Option 1 (Broxh) -->
-    <section id="view-spiritual-option1" class="hidden relative z-10 transition-opacity duration-300">
-      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
-        <div class="flex items-center justify-between mb-6">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tokotoko-primary/15 text-tokotoko-primary text-xs font-bold uppercase tracking-wider">
-            <span>🪓</span> Spiritual Pathway 1: Self & Joy
-          </span>
-          <button onclick="navigateTo('spiritual-selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
-            ← Change Spiritual Pathway
-          </button>
-        </div>
-        <div class="max-w-3xl mb-6">
-          <div class="w-14 h-14 rounded-2xl bg-tokotoko-primary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">🪵</div>
-          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">Broxh: What Fills Your Cup?</h2>
-          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
-            Broxh (Cullin Poe) is a traditional Māori wood carver from Rotorua who captivated millions worldwide simply by working on something that brought him wairua, patience, and genuine joy.
-          </p>
-        </div>
-        <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-tokotoko-sage/60 mb-8 tokotoko-shadow">
-          <div class="flex flex-col sm:flex-row gap-3">
-            <a href="https://www.youtube.com/watch?v=oCrN10ybCBA&t=1s" target="_blank" rel="noopener noreferrer" class="px-5 py-3 bg-red-700 text-white font-bold text-xs rounded-xl">Watch Video on YouTube</a>
-            <button onclick="copyToClipboard('https://www.youtube.com/watch?v=oCrN10ybCBA&t=1s')" class="px-4 py-3 bg-[#F2EFE9] text-xs font-bold rounded-xl border border-tokotoko-sage">Copy Link</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- VIEW: Spiritual Option 2 (Louis Davis) -->
-    <section id="view-spiritual-option2" class="hidden relative z-10 transition-opacity duration-300">
-      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
-        <div class="flex items-center justify-between mb-6">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tokotoko-secondary/20 text-[#635b00] text-xs font-bold uppercase tracking-wider">
-            <span>🏠</span> Spiritual Pathway 2: Whānau Service
-          </span>
-          <button onclick="navigateTo('spiritual-selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
-            ← Change Spiritual Pathway
-          </button>
-        </div>
-        <div class="max-w-3xl mb-6">
-          <div class="w-14 h-14 rounded-2xl bg-tokotoko-secondary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">❤️</div>
-          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">Serve My Family: Louis Davis</h2>
-          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
-            When life feels heavy, stepping up with small thoughtful acts for your partner and tamariki releases stress and brings spiritual peace to your home.
-          </p>
-        </div>
-        <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-tokotoko-sage/60 mb-8 tokotoko-shadow">
-          <div class="flex flex-col sm:flex-row gap-3">
-            <a href="https://www.tiktok.com/@louisdavis_/video/7695686777079729428?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="px-5 py-3 bg-black text-white font-bold text-xs rounded-xl">Watch on TikTok</a>
-            <button onclick="copyToClipboard('https://www.tiktok.com/@louisdavis_/video/7695686777079729428?is_from_webapp=1&sender_device=pc')" class="px-4 py-3 bg-[#F2EFE9] text-xs font-bold rounded-xl border border-tokotoko-sage">Copy Link</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- VIEW: Spiritual Option 3 (Millan Ruka MNZM) -->
-    <section id="view-spiritual-option3" class="hidden relative z-10 transition-opacity duration-300">
-      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
-        <div class="flex items-center justify-between mb-6">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
-            <span>🌊</span> Spiritual Pathway 3: Kaitiakitanga
-          </span>
-          <button onclick="navigateTo('spiritual-selector')" class="text-xs text-tokotoko-espresso/80 hover:text-tokotoko-primary flex items-center gap-1 font-bold">
-            ← Change Spiritual Pathway
-          </button>
-        </div>
-        <div class="max-w-3xl mb-6">
-          <div class="w-14 h-14 rounded-2xl bg-[#525317] text-white flex items-center justify-center text-2xl mb-4 shadow-sm">🌿</div>
-          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">Millan Ruka (MNZM): Whangārei Kaitiaki</h2>
-          <p class="mt-3 text-base text-tokotoko-espresso/85 font-medium leading-relaxed">
-            Descendant of Ngāpuhi hapū, champion of the Environment River Patrol, inventor of the clean-energy Ruka Marine Turbine, and protector of Porotī Springs.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- VIEW: Physical Option 1 -->
-    <section id="view-option1" class="hidden relative z-10 transition-opacity duration-300">
-      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
-        <div class="max-w-3xl">
-          <div class="w-14 h-14 rounded-2xl bg-tokotoko-primary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">💪</div>
-          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">Ka Rawe! Outstanding Whānau Commitment</h2>
-          <p class="mt-3 text-base sm:text-lg text-tokotoko-espresso/85 font-medium leading-relaxed">
-            Prioritizing your physical health builds the stamina and mental clarity needed to be an anchored man for your family.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- VIEW: Physical Option 2 (Exercise NZ) -->
-    <section id="view-option2" class="hidden relative z-10 transition-opacity duration-300">
-      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
-        <div class="max-w-3xl mb-6">
-          <div class="w-14 h-14 rounded-2xl bg-tokotoko-secondary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">🏋️</div>
-          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">Exercise NZ Subsidised Gym Access</h2>
-        </div>
-        <div class="bg-white rounded-2xl p-6 border-2 border-tokotoko-sage/60 mb-6">
-          <a href="https://www.exercise.org.nz/subsidised-gym-memberships-map/?gad_source=1&gad_campaignid=21068649576&gbraid=0AAAAADwIlbfzVwA5K1ebz03Wcc0MCjBkD&gclid=EAIaIQobChMInpugrva3lwMVIOEWBR2e7xl9EAAYASAAEgKzLPD_BwE" target="_blank" rel="noopener noreferrer" class="px-5 py-3 bg-tokotoko-secondary hover:bg-yellow-600 text-white font-bold text-xs rounded-xl inline-block">Open Subsidised Map</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- VIEW: Physical Option 3 (Sport Northland) -->
-    <section id="view-option3" class="hidden relative z-10 transition-opacity duration-300">
-      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
-        <div class="max-w-3xl mb-6">
-          <div class="w-14 h-14 rounded-2xl bg-tokotoko-primary text-white flex items-center justify-center text-2xl mb-4 shadow-sm">🌿</div>
-          <h2 class="text-2xl sm:text-4xl font-extrabold text-tokotoko-espresso tracking-tight leading-tight">Sport Northland Green Prescription</h2>
-        </div>
-        <div class="bg-white rounded-2xl p-6 border-2 border-tokotoko-sage/60 mb-6">
-          <a href="https://www.sportnorthland.co.nz/nga-mahi-a-te-rehia-l-get-active/green-prescription-1" target="_blank" rel="noopener noreferrer" class="px-5 py-3 bg-tokotoko-primary hover:bg-tokotoko-primaryDark text-white font-bold text-xs rounded-xl inline-block">Visit Sport Northland GRx</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- VIEW: Mental Options (1, 2, 3) -->
-    <section id="view-mental-option1" class="hidden relative z-10 transition-opacity duration-300">
-      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
-        <h2 class="text-2xl font-bold text-tokotoko-espresso">Man Alive Whangārei</h2>
-        <p class="text-xs text-tokotoko-espresso/80 mt-2 mb-4">Dedicated men-specific counseling, conflict regulation, and male peer mentoring.</p>
-        <a href="https://www.northlandwellbeing.org.nz/directory-listings/ManAlive" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-tokotoko-primary text-white text-xs font-bold rounded-xl inline-block">Visit Man Alive Directory</a>
-      </div>
-    </section>
-
-    <section id="view-mental-option2" class="hidden relative z-10 transition-opacity duration-300">
-      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
-        <h2 class="text-2xl font-bold text-tokotoko-espresso">Nga Manga Puriri (NMP)</h2>
-        <p class="text-xs text-tokotoko-espresso/80 mt-2 mb-4">Practical, relational alternatives to clinical counselling across Te Tai Tokerau.</p>
-        <a href="https://www.nmp.org.nz/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-tokotoko-secondary text-white text-xs font-bold rounded-xl inline-block">Visit NMP Website</a>
-      </div>
-    </section>
-
-    <section id="view-mental-option3" class="hidden relative z-10 transition-opacity duration-300">
-      <div class="bg-tokotoko-cardBg rounded-3xl p-6 sm:p-10 border border-tokotoko-sage/60 tokotoko-shadow mb-8">
-        <h2 class="text-2xl font-bold text-tokotoko-espresso">Jigsaw North Whangārei</h2>
-        <p class="text-xs text-tokotoko-espresso/80 mt-2 mb-4">Free, confidential family, parenting, and mental health support services.</p>
-        <a href="https://www.jigsawnorth.org.nz/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-[#525317] text-white text-xs font-bold rounded-xl inline-block">Visit Jigsaw North</a>
       </div>
     </section>
 
